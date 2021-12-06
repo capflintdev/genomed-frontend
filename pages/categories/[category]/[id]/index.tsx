@@ -3,28 +3,30 @@ import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
 import { RecordsEntity } from '../../../../interfaces/page.interface';
 import { testAPI, testsAPI } from '../../../../api/api';
-import { withLayout } from '../../../../layout/Layout';
+import { Layout } from '../../../../layout/Layout';
 
 function Test({ test }: pageProps): JSX.Element {
 
     return (
-        <>
-            <div>
-                <h2>Страница одного теста</h2>
-                {
-                    test &&
-                    <div key={test.id}>
-                        <p>имя: {test.name}</p>
-                        <p>артикул: {test.article}</p>
-                        <p>описание длинное: {test.long_description}</p>
-                    </div>
-                }
-            </div>
-        </>
+        <Layout title={`Тест ${test.name}`}>
+            <>
+                <div>
+                    <h2>Страница одного теста</h2>
+                    {
+                        test &&
+                        <div key={test.id}>
+                            <p>имя: {test.name}</p>
+                            <p>артикул: {test.article}</p>
+                            <p>описание длинное: {test.long_description}</p>
+                        </div>
+                    }
+                </div>
+            </>
+        </Layout>
     );
 }
 
-export default withLayout(Test);
+export default Test;
 
 export const getStaticPaths: GetStaticPaths = async () => {
 

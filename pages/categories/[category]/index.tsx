@@ -4,32 +4,34 @@ import { ParsedUrlQuery } from 'querystring';
 import Link from 'next/link';
 import { RecordsEntity } from '../../../interfaces/page.interface';
 import { categoryAPI, testsAPI } from '../../../api/api';
-import { withLayout } from '../../../layout/Layout';
+import { Layout } from '../../../layout/Layout';
 
 function Category({ tests, category }: pageProps): JSX.Element {
 
     return (
-        <>
-            <div>
-                <h2>Тесты в категории "{category}"</h2>
-                {
-                    tests &&
-                    tests.map(t => (
-                        <div key={t.id}>
-                            <Link href={`${t.category}/${t.id}`}>
-                                <a>
-                                    <p>тест: {t.name}<span> артикул: {t.article}</span></p>
-                                </a>
-                            </Link>
-                        </div>
-                    ))
-                }
-            </div>
-        </>
+        <Layout title={`Категория ${category}`}>
+            <>
+                <div>
+                    <h2>Тесты в категории "{category}"</h2>
+                    {
+                        tests &&
+                        tests.map(t => (
+                            <div key={t.id}>
+                                <Link href={`${t.category}/${t.id}`}>
+                                    <a>
+                                        <p>тест: {t.name}<span> артикул: {t.article}</span></p>
+                                    </a>
+                                </Link>
+                            </div>
+                        ))
+                    }
+                </div>
+            </>
+        </Layout>
     );
 }
 
-export default withLayout(Category);
+export default Category;
 
 export const getStaticPaths: GetStaticPaths = async () => {
 

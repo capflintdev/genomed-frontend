@@ -1,11 +1,19 @@
 import { LayoutProps } from './Layout.props';
 import { Header } from './Header/Header';
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Footer } from './Footer/Footer';
+import Head from 'next/head';
 
-const Layout = ({ children }: LayoutProps): JSX.Element => {
+
+export const Layout = ({ children, title = 'Геномед' }: LayoutProps): JSX.Element => {
     return (
         <>
+            <Head>
+                <title>{title}</title>
+                <link rel="icon" href="/favicon.ico" />
+                <meta property="og:url" content={""} />
+                <meta property="og:locale" content="ru_RU" />
+            </Head>
             <Header />
             <div>
                 <div>
@@ -15,14 +23,4 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
             <Footer />
         </>
     );
-};
-
-export const withLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
-    return function withLayoutComponent(props: T): JSX.Element {
-        return (
-            <Layout>
-                <Component {...props} />
-            </Layout>
-        );
-    };
 };
