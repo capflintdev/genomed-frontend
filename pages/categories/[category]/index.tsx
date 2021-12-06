@@ -17,7 +17,7 @@ function Category({ tests, category }: pageProps): JSX.Element {
                         tests &&
                         tests.map(t => (
                             <div key={t.id}>
-                                <Link href={`${t.category}/${t.id}`}>
+                                <Link href={`/categories/${t.category}/${t.id}`}>
                                     <a>
                                         <p>тест: {t.name}<span> артикул: {t.article}</span></p>
                                     </a>

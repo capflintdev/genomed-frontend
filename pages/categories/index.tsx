@@ -12,9 +12,9 @@ function Categories({ categories }: HomeProps): JSX.Element {
                 <h2>Категории</h2>
                 <ul>
                     {
-                        categories && categories.map(с => (
-                            <li>
-                                <p><Link href={`categories/${с}`}><a>Категория: {с}</a></Link></p>
+                        categories && categories.map((с, i) => (
+                            <li key={i}>
+                                <p><Link href={`/categories/${с}`}><a>Категория: {с}</a></Link></p>
                             </li>
                         ))
                     }
