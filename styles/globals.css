@@ -1,16 +1,37 @@
 html,
 body {
-  padding: 0;
-  margin: 10px;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	margin: 0;
+	padding: 0;
+
+	color: rgba(51, 51, 51, 1);
+
+	font-family: 'Raleway', sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	text-decoration: none;
+
+	color: inherit;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+p {
+	margin: 0 0 20px 0;
+}
+
+.container {
+	max-width: 1430px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+:root {
+	--black: #333;
+	--white: #FFF;
+	--primary: #0067A5;
+	--green: #8DC73E;
+	--blue: #289BE1;
 }

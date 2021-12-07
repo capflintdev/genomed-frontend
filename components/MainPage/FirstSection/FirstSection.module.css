@@ -1,0 +1,36 @@
+.firstScreen {
+	margin-bottom: 60px;
+}
+
+.firstScreenWrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.firstScreenText {
+	display: flex;
+	flex: 0 0 50%;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.firstScreenDesc {
+	max-width: 720px;
+
+	font-size: 20px;
+	line-height: 23px;
+}
+
+.firstScreenImage {
+	display: flex;
+	flex: 0 0 50%;
+	justify-content: flex-end;
+}
+
+.firstScreenText h1 {
+	margin: 0 0 45px 0;
+
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 42px;
+}

@@ -1,0 +1,38 @@
+.slider {
+	margin-bottom: 60px;
+}
+
+.embla {
+	position: relative;
+
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.embla__viewport {
+	overflow: hidden;
+
+	width: 100%;
+}
+
+.embla__container {
+	display: flex;
+
+	margin-left: -177px;
+
+	-khtml-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.embla__slide {
+	position: relative;
+
+	min-width: 584px;
+	margin-left: 50px;
+}
+
+.embla__slide:nth-child(1) {
+	margin-left: 0;
+}
