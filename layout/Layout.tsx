@@ -4,6 +4,7 @@ import React from 'react';
 import { Footer } from './Footer/Footer';
 import Head from 'next/head';
 import { useRouter } from 'next/dist/client/router';
+import styles from './Layout.module.css';
 
 
 export const Layout = ({ children, title = 'Геномед' }: LayoutProps): JSX.Element => {
