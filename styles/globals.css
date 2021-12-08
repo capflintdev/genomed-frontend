@@ -22,6 +22,15 @@ p {
 	margin: 0 0 20px 0;
 }
 
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
 .container {
 	max-width: 1430px;
 	margin: 0 auto;

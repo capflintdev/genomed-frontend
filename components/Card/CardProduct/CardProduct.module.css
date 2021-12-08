@@ -1,0 +1,59 @@
+.tag {
+	color: var(--green);
+	border: 1px solid var(--green);
+}
+
+.info {
+	flex: 0 0 60%;
+}
+
+.content {
+	display: flex;
+	justify-content: space-between;
+}
+
+.buy {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.id {
+	font-size: 12px;
+	line-height: 14px;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.price {
+	text-align: center;
+
+	color: var(--primary);
+
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 42px;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.buyBtn {
+	width: 230px;
+	padding: 15px 0;
+
+	cursor: pointer;
+	text-align: center;
+
+	color: #FFF;
+	border: none;
+	border-radius: 5px;
+	background: var(--blue);
+	background-image: linear-gradient(113.06deg, #2E9BDE 15.14%, #187CB8 71.36%);
+
+	font-family: 'Raleway', sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 19px;
+}
+
+.buyBtn:hover {
+	background: var(--blue);
+}

@@ -1,0 +1,12 @@
+.tag {
+	color: var(--blue);
+	border: 1px solid var(--blue);
+}
+
+.content {
+	flex-direction: column;
+}
+
+.moreBtn {
+	text-align: left;
+}

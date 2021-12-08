@@ -1,0 +1,19 @@
+.categoryPage {
+	padding-bottom: 100px;
+}
+
+.categoryWrap {
+	display: flex;
+}
+
+.sidebar {
+	margin-right: 40px;
+}
+
+.testsItem {
+	margin-bottom: 30px;
+}
+
+.loadMore {
+	text-align: center;
+}
