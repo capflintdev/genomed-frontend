@@ -1,0 +1,48 @@
+.tag {
+	color: var(--green);
+	border: 1px solid var(--green);
+}
+
+.cardMedium .content {
+	display: grid;
+	grid-template-columns: 57% 38%;
+	grid-column-gap: 30px;
+}
+
+.cardLarge .content {
+	display: grid;
+	grid-template-columns: auto 230px;
+	grid-column-gap: 70px;
+}
+
+.buy {
+	display: flex;
+	flex-direction: column;
+}
+
+.id {
+	font-size: 12px;
+	line-height: 14px;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.price {
+	margin-bottom: 25px;
+
+	text-align: center;
+
+	color: var(--primary);
+
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 42px;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.buyBtn {
+	margin-bottom: 25px;
+}
+
+.buyBtn:hover {
+	background: var(--blue);
+}

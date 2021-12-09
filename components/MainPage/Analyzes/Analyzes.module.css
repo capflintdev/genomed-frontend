@@ -13,12 +13,16 @@
 .analyzesWrap {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 
 .analyzesItem:nth-child(1),
 .analyzesItem:nth-child(2) {
-	margin-bottom: 60px;
+	margin-bottom: 50px;
+}
+
+.analyzesItem {
+	max-width: 680px;
 }
 
 .analyzes h2 {

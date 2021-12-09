@@ -1,4 +1,3 @@
-
 export interface CardProductProps {
-    category?: boolean;
+    size?: 'm' | 'l';
 }

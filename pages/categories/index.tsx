@@ -4,6 +4,7 @@ import { testsAPI } from '../../api/api';
 import { RecordsEntity } from '../../interfaces/page.interface';
 import { Layout } from '../../layout/Layout';
 
+
 function Categories({ categories }: HomeProps): JSX.Element {
 
     return (

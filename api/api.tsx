@@ -6,6 +6,26 @@ const instance = axios.create({
     baseURL: 'https://test-shkola-genetiki.genomed.ru/',
 });
 
+const instanceWP = axios.create({
+    baseURL: 'http://testchebur.temp.swtest.ru/',
+});
+
+export const wpAPI = {
+    async getH1() {
+        const response = await instanceWP.get<any>(`wp-json/wp/v2/pages?_fields[]=acf.block-1-title`);
+        return response.data[0].acf['block-1-title'];
+    },
+    async getSubtitle1() {
+        const response = await instanceWP.get<any>(`wp-json/wp/v2/pages?_fields[]=acf.block-1-subtitle-1`);
+        return response.data[0].acf['block-1-subtitle-1'];
+    },
+    async getSubtitle2() {
+        const response = await instanceWP.get<any>(`wp-json/wp/v2/pages?_fields[]=acf.block-1-subtitle-2`);
+        return response.data[0].acf['block-1-subtitle-2'];
+    }
+};
+
+
 export const testsAPI = {
     async getTests() {
         const response = await instance.get<RecordsAll>(`products/read.php`);

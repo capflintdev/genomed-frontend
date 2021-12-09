@@ -2,6 +2,11 @@
 	margin-bottom: 60px;
 }
 
+.container {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
 .embla {
 	position: relative;
 
@@ -18,8 +23,6 @@
 .embla__container {
 	display: flex;
 
-	margin-left: -177px;
-
 	-khtml-user-select: none;
 	user-select: none;
 	-webkit-touch-callout: none;
@@ -29,8 +32,8 @@
 .embla__slide {
 	position: relative;
 
-	min-width: 584px;
-	margin-left: 50px;
+	min-width: 680px;
+	margin-left: 40px;
 }
 
 .embla__slide:nth-child(1) {
