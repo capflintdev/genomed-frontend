@@ -1,0 +1,29 @@
+.testPage {
+	padding-bottom: 60px;
+}
+
+.firstBlock {
+	display: grid;
+	grid-template-columns: 920px 320px;
+	grid-column-gap: 160px;
+
+	margin-bottom: 90px;
+}
+
+.relatedTestsWrap {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 40px;
+}
+
+.relatedTests h2 {
+	margin-bottom: 60px;
+
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 28px;
+}
+
+.tabs {
+	margin-bottom: 75px;
+}

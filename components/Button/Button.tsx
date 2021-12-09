@@ -1,17 +1,22 @@
 import styles from './Button.module.css';
-import { ButtonProps } from './Button.props';
+import {ButtonProps} from './Button.props';
 import cn from 'classnames';
 
-export const Button = ({ appearance, children, className, ...props }: ButtonProps): JSX.Element => {
+export const Button = ({appearance, href, children, className, ...props}: ButtonProps): JSX.Element => {
     return (
-        <button
+        <div
             className={cn(styles.button, className, {
-                [styles.primary]: appearance == 'primary',
-                [styles.white]: appearance == 'white',
-            })}
+                    [styles.primary]: appearance == 'primary',
+                    [styles.white]: appearance == 'white',
+                },
+                )}
             {...props}
         >
-            {children}
-        </button>
+            {
+                href
+                    ? <a href={href}>{children}</a>
+                    : <>{children}</>
+            }
+        </div>
     );
 };

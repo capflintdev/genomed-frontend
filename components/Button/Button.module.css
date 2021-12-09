@@ -2,14 +2,16 @@
 	display: inline-block;
 
 	box-sizing: border-box;
-	width: 230px;
+	width: 100%;
+
 	padding: 15px 0;
 
 	cursor: pointer;
 	transition: all 0.3s;
 	text-align: center;
 
-	border: none;
+	border: 1px solid transparent;
+
 	border-radius: 5px;
 
 	font-family: Raleway, sans-serif;
@@ -27,7 +29,7 @@
 .primary:hover {
 	color: var(--primary);
 	border: 1px solid var(--primary);
-	background-color: var(--white);
+	background: var(--white);
 }
 
 .white {
@@ -38,5 +40,5 @@
 
 .white:hover {
 	color: var(--white);
-	background-color: var(--blue);
+	background: var(--blue);
 }

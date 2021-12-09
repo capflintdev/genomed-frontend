@@ -1,10 +1,15 @@
 import stylesCard from "./CardProduct.module.css";
 import styles from "../Card.module.css";
 import cn from 'classnames';
+import {Button} from "../../Button/Button";
+import {CardProductProps} from './CardProduct.props';
 
-const CardProduct = () => {
+const CardProduct = ({size} : CardProductProps) => {
     return (
-        <div className={styles.card}>
+        <div className={cn(styles.card, {
+            [stylesCard.cardMedium]: size == 'm',
+            [stylesCard.cardLarge]: size == 'l',
+        })}>
             <div className={cn(styles.tag, stylesCard.tag)}>Исследование</div>
             <div className={stylesCard.content}>
                 <div className={stylesCard.info}>
@@ -18,8 +23,9 @@ const CardProduct = () => {
                 </div>
                 <div className={stylesCard.buy}>
                     <div className={stylesCard.price}>6 000 ₽</div>
-                    <button className={stylesCard.buyBtn}>Купить</button>
-
+                    <div className={stylesCard.buyBtn}>
+                        <Button appearance={'primary'}>Купить</Button>
+                    </div>
                     <div className={styles.moreBtn}><a href={"#"}>Подробнее</a></div>
                 </div>
             </div>

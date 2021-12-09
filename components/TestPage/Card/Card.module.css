@@ -1,0 +1,39 @@
+.card {
+	width: 319px;
+	height: 393px;
+	padding: 45px 50px 0 50px;
+
+	text-align: center;
+
+	border-radius: 10px;
+	background: #F7F9FB;
+}
+
+.id {
+	margin-bottom: 33px;
+
+	text-align: center;
+
+	font-size: 12px;
+	line-height: 14px;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.title {
+	margin-bottom: 25px;
+
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 130%;
+}
+
+.price {
+	margin-bottom: 80px;
+
+	color: var(--primary);
+
+	font-size: 30px;
+	font-weight: 600;
+	line-height: 35px;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}

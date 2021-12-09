@@ -1,0 +1,21 @@
+.generalInfo h1 {
+	margin-bottom: 50px;
+
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 42px;
+}
+
+.generalInfo h2 {
+	margin-bottom: 30px;
+
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 28px;
+}
+
+.mainText {
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 135%;
+}

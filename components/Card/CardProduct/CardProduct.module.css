@@ -3,19 +3,21 @@
 	border: 1px solid var(--green);
 }
 
-.info {
-	flex: 0 0 60%;
+.cardMedium .content {
+	display: grid;
+	grid-template-columns: 57% 38%;
+	grid-column-gap: 30px;
 }
 
-.content {
-	display: flex;
-	justify-content: space-between;
+.cardLarge .content {
+	display: grid;
+	grid-template-columns: auto 230px;
+	grid-column-gap: 70px;
 }
 
 .buy {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 }
 
 .id {
@@ -25,6 +27,8 @@
 }
 
 .price {
+	margin-bottom: 25px;
+
 	text-align: center;
 
 	color: var(--primary);
@@ -36,22 +40,7 @@
 }
 
 .buyBtn {
-	width: 230px;
-	padding: 15px 0;
-
-	cursor: pointer;
-	text-align: center;
-
-	color: #FFF;
-	border: none;
-	border-radius: 5px;
-	background: var(--blue);
-	background-image: linear-gradient(113.06deg, #2E9BDE 15.14%, #187CB8 71.36%);
-
-	font-family: 'Raleway', sans-serif;
-	font-size: 16px;
-	font-weight: 600;
-	line-height: 19px;
+	margin-bottom: 25px;
 }
 
 .buyBtn:hover {

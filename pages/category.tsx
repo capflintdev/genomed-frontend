@@ -11,17 +11,17 @@ function Category(): JSX.Element {
     return (
         <Layout title="Категория">
             <div className={styles.categoryPage}>
-            <FirstSection {...category}/>
+            {/*<FirstSection {...category}/>*/}
             <div className="container">
                 <div className={styles.categoryWrap}>
                     <div className={styles.sidebar}>
                         <Sidebar/>
                     </div>
                     <div className={styles.tests}>
-                        <div className={styles.testsItem}><CardProduct/></div>
-                        <div className={styles.testsItem}><CardProduct/></div>
-                        <div className={styles.testsItem}><CardProduct/></div>
-                        <div className={styles.testsItem}><CardProduct/></div>
+                        <div className={styles.testsItem}><CardProduct size={'l'}/></div>
+                        <div className={styles.testsItem}><CardProduct size={'l'}/></div>
+                        <div className={styles.testsItem}><CardProduct size={'l'}/></div>
+                        <div className={styles.testsItem}><CardProduct size={'l'}/></div>
                         <div className={styles.loadMore}><Button appearance={'white'}>Смотреть еще</Button></div>
                     </div>
                 </div>

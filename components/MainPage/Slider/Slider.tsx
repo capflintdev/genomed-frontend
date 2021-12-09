@@ -19,10 +19,10 @@ const Slider = () => {
                 <div className={styles.embla} >
                     <div className={styles.embla__viewport} ref={emblaRef}>
                         <div className={styles.embla__container}>
-                            <div className={styles.embla__slide}><CardProduct/></div>
-                            <div className={styles.embla__slide}><CardProduct/></div>
-                            <div className={styles.embla__slide}><CardProduct/></div>
-                            <div className={styles.embla__slide}><CardProduct/></div>
+                            <div className={styles.embla__slide}><CardProduct size={'m'}/></div>
+                            <div className={styles.embla__slide}><CardProduct size={'m'}/></div>
+                            <div className={styles.embla__slide}><CardProduct size={'m'}/></div>
+                            <div className={styles.embla__slide}><CardProduct size={'m'}/></div>
                         </div>
                     </div>
                 </div>
