@@ -1,7 +1,6 @@
 import styles from './Analyzes.module.css';
-import CardProduct from "../CardProduct/CardProduct";
+import CardProduct from "../../Card/CardProduct/CardProduct";
 import React from "react";
-import cn from 'classnames';
 
 const Analyzes = () => {
     return (
@@ -9,10 +8,10 @@ const Analyzes = () => {
             <div className="container">
                 <h2>Анализы</h2>
                 <div className={styles.analyzesWrap}>
-                    <div className={styles.analyzesItem}><CardProduct/></div>
-                    <div className={styles.analyzesItem}><CardProduct/></div>
-                    <div className={styles.analyzesItem}><CardProduct category/></div>
-                    <div className={styles.analyzesItem}><CardProduct category/></div>
+                    <div className={styles.analyzesItem}><CardProduct size={'m'}/></div>
+                    <div className={styles.analyzesItem}><CardProduct size={'m'}/></div>
+                    <div className={styles.analyzesItem}><CardProduct size={'m'}/></div>
+                    <div className={styles.analyzesItem}><CardProduct size={'m'}/></div>
                 </div>
             </div>
         </section>

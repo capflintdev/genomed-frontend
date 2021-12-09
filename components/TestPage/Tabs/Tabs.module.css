@@ -1,0 +1,30 @@
+.tabsTitleWrap {
+	display: flex;
+	justify-content: space-between;
+
+	margin-bottom: 20px;
+
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.tabTitle {
+	cursor: pointer;
+
+	color: #000;
+
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 23px;
+}
+
+.tabTitleActive {
+	padding-bottom: 18px;
+
+	color: var(--primary);
+	border-bottom: 1px solid var(--primary);
+}
+
+.tabContent {
+	font-size: 18px;
+	line-height: 140%;
+}

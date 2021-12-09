@@ -1,24 +1,45 @@
 import { Layout } from '../layout/Layout';
-import FirstSection from "../components/MainPage/FirstSection/FirstSection";
+import FirstSection from "../components/FirstSection/FirstSection";
 import Slider from "../components/MainPage/Slider/Slider";
 import Advantages from "../components/MainPage/Advantages/Advantages";
 import Analyzes from "../components/MainPage/Analyzes/Analyzes";
+import {GetStaticProps} from "next";
+import {wpAPI} from "../api/api";
 
-function Home(): JSX.Element {
+
+
+function Home({...props} : pageProps): JSX.Element {
 
   return (
     <Layout title="Геномед">
-      <FirstSection/>
+       <FirstSection {...props}/>
       <Slider/>
       <Advantages/>
       <Analyzes/>
-      {/*<p>
-        <Link href={'/categories'}><a>перейти в Категории</a></Link>
-      </p>*/}
     </Layout>
   );
 }
 
 export default Home;
 
+export const getStaticProps: GetStaticProps<pageProps> = async () => {
 
+
+    const title: string = await wpAPI.getH1();
+    const subtitle1: string = await wpAPI.getSubtitle1();
+    const subtitle2: string = await wpAPI.getSubtitle2();
+
+    return {
+        props: {
+            title,
+            subtitle1,
+            subtitle2
+        }
+    };
+};
+
+interface pageProps {
+    title: string;
+    subtitle1: string;
+    subtitle2: string;
+}

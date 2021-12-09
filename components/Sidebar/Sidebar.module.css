@@ -1,0 +1,28 @@
+.nav {
+	width: 440px;
+	padding: 50px 0 120px 40px;
+
+	border-radius: 10px;
+	background: #F7F9FB;
+}
+
+.navTitle {
+	margin: 0 0 39px 0;
+
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 130%;
+}
+
+.navItems li a {
+	font-size: 20px;
+	line-height: 130%;
+}
+
+.navItems li a:hover {
+	color: var(--primary);
+}
+
+.navItems li:not(:last-child) {
+	margin-bottom: 39px;
+}
