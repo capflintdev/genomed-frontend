@@ -10,6 +10,25 @@ const instanceWP = axios.create({
     baseURL: 'http://testchebur.temp.swtest.ru/',
 });
 
+const instanceNew = axios.create({
+    baseURL: 'http://testcheb.tech/',
+});
+
+export const tests2API = {
+    async getTests() {
+        const response = await instanceNew.get<RecordsAll>(`products/read.php`);
+        return response.data.records;
+    }
+};
+
+export const categoryAPI2 = {
+    async getCategory(category_path: string) {
+        const response = await instanceNew.get<RecordsAll>(`products/read_category.php?category_path=${category_path}`);
+        return response.data.records_cat;
+    }
+};
+
+
 export const wpAPI = {
     async getH1() {
         const response = await instanceWP.get<any>(`wp-json/wp/v2/pages?_fields[]=acf.block-1-title`);

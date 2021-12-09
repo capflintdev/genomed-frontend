@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import Link from 'next/link';
-import { testsAPI } from '../../api/api';
+import {tests2API, testsAPI} from '../../api/api';
 import { RecordsEntity } from '../../interfaces/page.interface';
 import { Layout } from '../../layout/Layout';
 
@@ -28,6 +28,28 @@ function Categories({ categories }: HomeProps): JSX.Element {
 export default Categories;
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+
+   /* const categories: [][] = await tests2API.getTests().then(
+        (tests: RecordsEntity[]) => {
+
+            const uniqCategories: [][] = [];
+           //const categoryPath: Record<string,unknown> = {}
+
+            tests.forEach(function (entry) {
+                let ar: string[] = []
+                for (const key in entry) {
+                    ar = [];
+                    if (key === 'category' ) {
+                        ar[0] = entry[key]
+                    }
+                    else if (key === 'category_path') {
+                        ar[1] = entry[key]
+                    }
+                    if( ar.length === 1 ){
+                        uniqCategories.push(ar);
+                    }
+                }
+            });*/
 
     const categories: string[] = await testsAPI.getTests().then(
         (tests: RecordsEntity[]) => {

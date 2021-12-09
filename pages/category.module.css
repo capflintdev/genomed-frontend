@@ -18,3 +18,62 @@
 	max-width: 230px;
 	margin: 0 auto;
 }
+
+.firstScreen {
+	margin-bottom: 60px;
+}
+
+.firstScreenWrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.firstScreenText {
+	display: flex;
+	flex: 0 0 680px;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.firstScreenDesc {
+	max-width: 720px;
+
+	font-size: 20px;
+	line-height: 135%;
+}
+
+.firstScreenImage {
+	display: flex;
+	flex: 0 0 680px;
+	justify-content: flex-end;
+}
+
+.firstScreenText h1 {
+	margin: 0 0 30px 0;
+
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 42px;
+}
+
+.imageWrap {
+	position: relative;
+}
+
+.frame::before {
+	position: absolute;
+	top: 23px;
+	left: -16px;
+
+	content: url("./line.svg");
+}
+
+.frame::after {
+	position: absolute;
+	z-index: 100;
+	top: 75px;
+	left: 0;
+
+	content: url("./circles.svg");
+}
