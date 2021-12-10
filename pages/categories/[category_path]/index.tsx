@@ -53,10 +53,13 @@ function Category({ tests, category }: pageProps): JSX.Element {
                             <Sidebar/>
                         </div>
                         <div className={styles.tests}>
-                            <div className={styles.testsItem}><CardProduct size={'l'}/></div>
-                            <div className={styles.testsItem}><CardProduct size={'l'}/></div>
-                            <div className={styles.testsItem}><CardProduct size={'l'}/></div>
-                            <div className={styles.testsItem}><CardProduct size={'l'}/></div>
+                            {
+                                tests && tests.map(
+                                    (t) =>  <div className={styles.testsItem}>
+                                        <CardProduct size={'l'} test={t} category={tests[0].category_path}/>
+                                    </div>
+                                )
+                            }
                             <div className={styles.loadMore}><Button appearance={'white'}>Смотреть еще</Button></div>
                         </div>
                     </div>
@@ -72,13 +75,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     const tests: RecordsEntity[] = await tests2API.getTests();
 
-/*    const paths = tests.map(t => {
-        return {
-            params: {
-                category: t['category_path'].toString(),
-            }
-        };
-    });*/
     const paths = tests.map(t => '/categories/' + t['category_path'])
 
     
