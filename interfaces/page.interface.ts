@@ -7,8 +7,15 @@ export interface RecordsEntity { // один тест
     id: string;
     article: string;
     category: string;
+    category_path: string;
     name: string;
-    short_description: string;
-    long_description: string;
+    shortinfo: string;
+    longinfo: string;
+    details: string;
+    indications: string;
+    preparation: string;
+    methods: string;
+    howto: string;
+    results: string;
     price: string;
 }
