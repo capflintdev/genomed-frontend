@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<pageProps> = async () => {
 };
 
 interface pageProps {
-    title?: string;
-    subtitle1?: string;
-    subtitle2?: string;
+    title: string;
+    subtitle1: string;
+    subtitle2: string;
 }
