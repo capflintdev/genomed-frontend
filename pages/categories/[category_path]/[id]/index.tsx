@@ -2,26 +2,36 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
 import { RecordsEntity } from '../../../../interfaces/page.interface';
-import {testAPI, tests2API, testsAPI} from '../../../../api/api';
+import {testAPI2, tests2API} from '../../../../api/api';
 import { Layout } from '../../../../layout/Layout';
+import styles from "../../../test.module.css";
+import GeneralInfo from "../../../../components/TestPage/GeneralInfo/GeneralInfo";
+import Card from "../../../../components/TestPage/Card/Card";
+import TabsData from "../../../../components/TestPage/Tabs/TabsData";
+import CardProduct from "../../../../components/Card/CardProduct/CardProduct";
 
 function Test({ test }: pageProps): JSX.Element {
 
     return (
-        <Layout title={`Тест ${test.name}`}>
-            <>
-                <div>
-                    <h2>Страница одного теста</h2>
-                    {
-                        test &&
-                        <div key={test.id}>
-                            <p>имя: {test.name}</p>
-                            <p>артикул: {test.article}</p>
-
+        <Layout title={test.name}>
+            <div className={styles.testPage}>
+                <div className="container">
+                    <section className={styles.firstBlock}>
+                        <GeneralInfo {...test}/>
+                        <Card {...test}/>
+                    </section>
+                    <section className={styles.tabs}>
+                        <TabsData/>
+                    </section>
+                    <section className={styles.relatedTests}>
+                        <h2>С этим исследованием также назначают</h2>
+                        <div className={styles.relatedTestsWrap}>
+                            <div className={styles.relatedTestsItem}><CardProduct size={'m'}/></div>
+                            <div className={styles.relatedTestsItem}><CardProduct size={'m'}/></div>
                         </div>
-                    }
+                    </section>
                 </div>
-            </>
+            </div>
         </Layout>
     );
 }
@@ -56,7 +66,7 @@ export const getStaticProps: GetStaticProps<pageProps> = async ({ params }: GetS
 
     const { id } = params as IParams;
 
-    const test: RecordsEntity = await testAPI.getTest(id);
+    const test: RecordsEntity = await testAPI2.getTest(id);
 
     return {
         props: {

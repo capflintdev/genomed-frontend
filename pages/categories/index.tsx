@@ -5,7 +5,11 @@ import { RecordsEntity } from '../../interfaces/page.interface';
 import { Layout } from '../../layout/Layout';
 
 
-function Categories({ categories }: HomeProps): JSX.Element {
+function Categories({ uniqCat }: HomeProps): JSX.Element {
+
+
+    const arr = [];
+    for(const key in uniqCat) arr.push(<li key={key}> <p><Link href={`/categories/${uniqCat[key]}`}><a>Категория: {key}</a></Link></p></li>);
 
     return (
         <Layout title="Категории">
@@ -13,11 +17,7 @@ function Categories({ categories }: HomeProps): JSX.Element {
                 <h2>Категории</h2>
                 <ul>
                     {
-                        categories && categories.map((с, i) => (
-                            <li key={i}>
-                                <p><Link href={`/categories/${с}`}><a>Категория: {с}</a></Link></p>
-                            </li>
-                        ))
+                       arr
                     }
                 </ul>
             </>
@@ -29,55 +29,21 @@ export default Categories;
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 
-   /* const categories: [][] = await tests2API.getTests().then(
-        (tests: RecordsEntity[]) => {
+    const tests: RecordsEntity[] = await tests2API.getTests();
 
-            const uniqCategories: [][] = [];
-           //const categoryPath: Record<string,unknown> = {}
-
-            tests.forEach(function (entry) {
-                let ar: string[] = []
-                for (const key in entry) {
-                    ar = [];
-                    if (key === 'category' ) {
-                        ar[0] = entry[key]
-                    }
-                    else if (key === 'category_path') {
-                        ar[1] = entry[key]
-                    }
-                    if( ar.length === 1 ){
-                        uniqCategories.push(ar);
-                    }
-                }
-            });*/
-
-    const categories: string[] = await testsAPI.getTests().then(
-        (tests: RecordsEntity[]) => {
-
-            const uniqCategories: string[] = [];
-            tests.forEach(function (entry) {
-                for (const key in entry) {
-                    if (key === 'category') {
-                        uniqCategories.push(entry[key]);
-                    }
-                }
-            });
-
-            return Array.from(new Set(uniqCategories)).sort();
-        }
-    );
-
+    const categories = tests.map(t => [t.category, t.category_path]);
+    const uniqCat = Object.fromEntries(categories);
 
     return {
         props: {
-            categories
+            uniqCat
         }
     };
 
 };
 
 interface HomeProps extends Record<string, unknown> {
-    categories: string[]
+    uniqCat: Record<string, unknown>
 }
 
 

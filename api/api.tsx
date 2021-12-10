@@ -28,6 +28,13 @@ export const categoryAPI2 = {
     }
 };
 
+export const testAPI2 = {
+    async getTest(id: string) {
+        const response = await instanceNew.get<RecordsEntity>(`products/read_single.php?id=${id}`);
+        return response.data;
+    }
+};
+
 
 export const wpAPI = {
     async getH1() {
