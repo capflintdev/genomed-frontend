@@ -8,7 +8,7 @@ const FirstSection = ({title, subtitle1, subtitle2}: FirstSectionProps) => {
             <div className="container">
                 <div className={styles.firstScreenWrap}>
                     <div className={styles.firstScreenText}>
-                        <h1>{title}</h1>
+                        <h1>{title || 'Заголовок'}</h1>
                         <div className={styles.firstScreenDesc}>
                             <p>{subtitle1}</p>
                             <p>{subtitle2}</p>
