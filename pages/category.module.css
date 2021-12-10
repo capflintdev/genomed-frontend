@@ -10,6 +10,10 @@
 	margin-right: 40px;
 }
 
+.tests {
+	flex: 0 1 920px;
+}
+
 .testsItem {
 	margin-bottom: 30px;
 }

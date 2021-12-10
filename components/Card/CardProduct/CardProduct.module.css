@@ -41,6 +41,7 @@
 
 .buyBtn {
 	margin-bottom: 25px;
+	border-radius: 5px;
 }
 
 .buyBtn:hover {

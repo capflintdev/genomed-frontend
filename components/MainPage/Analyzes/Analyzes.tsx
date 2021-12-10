@@ -1,6 +1,7 @@
 import styles from './Analyzes.module.css';
 import CardProduct from "../../Card/CardProduct/CardProduct";
 import React from "react";
+import CardCategory from "../../Card/CardCategory/CardCategory";
 
 const Analyzes = () => {
     return (
@@ -10,8 +11,8 @@ const Analyzes = () => {
                 <div className={styles.analyzesWrap}>
                     <div className={styles.analyzesItem}><CardProduct size={'m'}/></div>
                     <div className={styles.analyzesItem}><CardProduct size={'m'}/></div>
-                    <div className={styles.analyzesItem}><CardProduct size={'m'}/></div>
-                    <div className={styles.analyzesItem}><CardProduct size={'m'}/></div>
+                    <div className={styles.analyzesItem}><CardCategory/></div>
+                    <div className={styles.analyzesItem}><CardCategory/></div>
                 </div>
             </div>
         </section>

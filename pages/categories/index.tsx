@@ -13,14 +13,18 @@ function Categories({ uniqCat }: HomeProps): JSX.Element {
 
     return (
         <Layout title="Категории">
-            <>
+             <div className={'container'}>
                 <h2>Категории</h2>
+                 <style jsx>{`
+                    h2 {
+                    margin-bottom: 30px}
+                   `}</style>
                 <ul>
                     {
                        arr
                     }
                 </ul>
-            </>
+             </div>
         </Layout>
     );
 }

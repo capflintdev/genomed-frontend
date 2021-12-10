@@ -1,13 +1,12 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
-import Link from 'next/link';
 import { RecordsEntity } from '../../../interfaces/page.interface';
-import {categoryAPI, categoryAPI2, tests2API} from '../../../api/api';
+import { categoryAPI2, tests2API} from '../../../api/api';
 import { Layout } from '../../../layout/Layout';
 import styles from "../../category.module.css";
 import Image from "next/image";
-import mainPageImage from "../../../public/images/first-section.png";
+import mainPageImage from "../../../public/images/category-photo.png";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import CardProduct from "../../../components/Card/CardProduct/CardProduct";
 import {Button} from "../../../components/Button/Button";
@@ -53,10 +52,13 @@ function Category({ tests, category }: pageProps): JSX.Element {
                             <Sidebar/>
                         </div>
                         <div className={styles.tests}>
-                            <div className={styles.testsItem}><CardProduct size={'l'}/></div>
-                            <div className={styles.testsItem}><CardProduct size={'l'}/></div>
-                            <div className={styles.testsItem}><CardProduct size={'l'}/></div>
-                            <div className={styles.testsItem}><CardProduct size={'l'}/></div>
+                            {
+                                tests && tests.map(
+                                    (t) =>  <div className={styles.testsItem}>
+                                        <CardProduct size={'l'} test={t} category={tests[0].category_path}/>
+                                    </div>
+                                )
+                            }
                             <div className={styles.loadMore}><Button appearance={'white'}>Смотреть еще</Button></div>
                         </div>
                     </div>
@@ -72,13 +74,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     const tests: RecordsEntity[] = await tests2API.getTests();
 
-/*    const paths = tests.map(t => {
-        return {
-            params: {
-                category: t['category_path'].toString(),
-            }
-        };
-    });*/
     const paths = tests.map(t => '/categories/' + t['category_path'])
 
     
