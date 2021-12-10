@@ -1,13 +1,12 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
-import Link from 'next/link';
 import { RecordsEntity } from '../../../interfaces/page.interface';
-import {categoryAPI, categoryAPI2, tests2API} from '../../../api/api';
+import { categoryAPI2, tests2API} from '../../../api/api';
 import { Layout } from '../../../layout/Layout';
 import styles from "../../category.module.css";
 import Image from "next/image";
-import mainPageImage from "../../../public/images/first-section.png";
+import mainPageImage from "../../../public/images/category-photo.png";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import CardProduct from "../../../components/Card/CardProduct/CardProduct";
 import {Button} from "../../../components/Button/Button";
