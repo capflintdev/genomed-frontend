@@ -1,20 +1,30 @@
 import styles from './Sidebar.module.css';
 import Link from "next/link";
+import {useRouter} from "next/router";
+import cn from 'classnames';
 
-const Sidebar = () => {
+const Sidebar = ({data}:any) => {
+
+    const router = useRouter();
+    console.log(router)
+
     return (
         <nav className={styles.nav}>
-            <p className={styles.navTitle}>Оксидативный стресс</p>
             <ul className={styles.navItems}>
-                <li><Link href={`/categories/steroid-hormones-and-metabolites`}><a>Стероидные гормоны</a></Link></li>
-                <li><Link href={`/categories/neuromediators`}><a>Нейромедиаторы</a></Link></li>
-                <li><Link href={`/categories/amino-and-organic-acids`}><a>Аминокислоты</a></Link></li>
-                <li><Link href={`/categories/fatty-acids-and-carnitins`}><a>Жирные кислоты</a></Link></li>
-                <li><Link href={`/categories/microelements`}><a>Микроэлементы</a></Link></li>
-                <li><Link href={`/categories/vitamins`}><a>Витамины</a></Link></li>
+                { data.map((item:any, index:number) => (
+                    <li key={index} className={cn(styles.item, {
+                        [styles.active] : router.asPath.split('/')[2] === item['category_path']
+                    })}>
+                        <Link href={`/categories/${item['category_path']}`}>
+                            <a>{item['category']}</a>
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </nav>
     );
 };
 
 export default Sidebar;
+
+

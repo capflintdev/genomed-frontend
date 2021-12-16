@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
-import {RecordsEntity, testsAll} from '../../../interfaces/page.interface';
+import {categoryOne, recordsAll, test} from '../../../interfaces/page.interface';
 import {categoryAPI, testsAPI} from '../../../api/api';
 import {withLayout} from '../../../layout/Layout';
 import styles from "./category.module.css";
@@ -11,7 +11,7 @@ import Sidebar from "../../../components/Sidebar/Sidebar";
 import CardProduct from "../../../components/Card/CardProduct/CardProduct";
 import {Button} from "../../../components/Button/Button";
 
-function Category({ tests, category, category_path }: pageProps): JSX.Element {
+function Category({ tests, category, category_path ,data }: pageProps): JSX.Element {
 
     return (
             <div className={styles.categoryPage}>
@@ -49,7 +49,7 @@ function Category({ tests, category, category_path }: pageProps): JSX.Element {
                 <div className="container">
                     <div className={styles.categoryWrap}>
                         <div className={styles.sidebar}>
-                            <Sidebar/>
+                            <Sidebar data={data}/>
                         </div>
                         <div className={styles.tests}>
                             {
@@ -72,8 +72,8 @@ export default  withLayout(Category);
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-    const tests:any  = await testsAPI.getTests();
-    const paths:any = tests.map((t:any) => '/categories/' + t['category_path']);
+    const categoryAll: categoryOne[] = await testsAPI.getTests();
+    const paths: string[] = categoryAll.map((t:categoryOne) => '/categories/' + t['category_path']);
 
 
     return {
@@ -90,9 +90,9 @@ export const getStaticProps: GetStaticProps<pageProps> = async ({ params }: GetS
     }
 
     const { category_path } = params as IParams;
-    const tests: any = await categoryAPI.getCategory(category_path).then(response => response[0].tests);
-    const category: any = await categoryAPI.getCategory(category_path).then(response => response[0]);
-    const data: RecordsEntity[] = await testsAPI.getTests();
+    const tests: test[] = await categoryAPI.getCategory(category_path).then(response => response[0].tests);
+    const category: categoryOne  = await categoryAPI.getCategory(category_path).then(response => response[0]);
+    const data: categoryOne[] = await testsAPI.getTests();
 
     return {
         props: {
@@ -106,10 +106,10 @@ export const getStaticProps: GetStaticProps<pageProps> = async ({ params }: GetS
 
 
 interface pageProps extends Record<string, unknown> {
-    tests: RecordsEntity[];
-    data: RecordsEntity[]
-    category: any
-    category_path: any
+    tests: test[]
+    data: categoryOne[]
+    category: categoryOne
+    category_path: string
 }
 
 interface IParams extends ParsedUrlQuery {

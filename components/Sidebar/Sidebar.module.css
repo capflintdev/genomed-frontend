@@ -1,17 +1,9 @@
 .nav {
 	width: 440px;
-	padding: 50px 0 120px 40px;
+	padding: 50px 40px 120px 40px;
 
 	border-radius: 10px;
 	background: #F7F9FB;
-}
-
-.navTitle {
-	margin: 0 0 39px 0;
-
-	font-size: 24px;
-	font-weight: 600;
-	line-height: 130%;
 }
 
 .navItems li a {
@@ -25,4 +17,10 @@
 
 .navItems li:not(:last-child) {
 	margin-bottom: 39px;
+}
+
+.item.active {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 130%;
 }

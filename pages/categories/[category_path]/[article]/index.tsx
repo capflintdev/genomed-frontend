@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
-import { RecordsEntity } from '../../../../interfaces/page.interface';
+import {categoryOne, test} from '../../../../interfaces/page.interface';
 import {testAPI, testsAPI} from '../../../../api/api';
 import { withLayout} from '../../../../layout/Layout';
 import styles from "./test.module.css";
@@ -38,17 +38,18 @@ export default withLayout(Test);
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-   const tests: RecordsEntity[] = await testsAPI.getTests();
+   const tests: categoryOne[] = await testsAPI.getTests();
 
     const paths:any = [];
-    tests.forEach(function(item, index) {
-        const a:any = `/categories/${item['category_path']}/`;
+
+    tests.forEach(function(item: categoryOne, index) {
+        const a:string = `/categories/${item['category_path']}/`;
 
         for (const key in item) {
             if (key === 'tests') {
-                item[key].forEach(function(item, index) {
-                    const b:any = item.article
-                    paths.push(a + b)
+                item['tests'].forEach(function(item, index) {
+                    const b:string = item.article;
+                    paths.push(a + b);
                 });
             }
         }
@@ -69,9 +70,9 @@ export const getStaticProps: GetStaticProps<pageProps> = async ({ params }: GetS
 
     const { article } = params as IParams;
 
-    const tests: RecordsEntity[] = await testsAPI.getTests();
-    const test: RecordsEntity = await testAPI.getTest(article);
-    const data: RecordsEntity[] = await testsAPI.getTests();
+    const tests: categoryOne[]  = await testsAPI.getTests();
+    const test: test = await testAPI.getTest(article);
+    const data: categoryOne[] = await testsAPI.getTests();
 
     return {
         props: {
@@ -84,8 +85,8 @@ export const getStaticProps: GetStaticProps<pageProps> = async ({ params }: GetS
 
 
 interface pageProps extends Record<string, unknown> {
-    test: RecordsEntity;
-    data: RecordsEntity[];
+    test: test;
+    data: categoryOne[];
 }
 
 interface IParams extends ParsedUrlQuery {

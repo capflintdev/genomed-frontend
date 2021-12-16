@@ -4,8 +4,8 @@ import Slider from "../components/MainPage/Slider/Slider";
 import Advantages from "../components/MainPage/Advantages/Advantages";
 import Analyzes from "../components/MainPage/Analyzes/Analyzes";
 import {GetStaticProps} from "next";
-import {forSearchAPI, testsAPI, wpAPI} from "../api/api";
-import {RecordsEntity} from "../interfaces/page.interface";
+import { testsAPI, wpAPI} from "../api/api";
+import {categoryOne} from "../interfaces/page.interface";
 import {block2} from "../interfaces/wp.interface";
 import React from "react";
 
@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps<pageProps> = async () => {
     const advantages: block2[] = await wpAPI.getDataWP().then(response => response["block-2"]);
 
 
-    const data: RecordsEntity[] = await testsAPI.getTests();
+    const data: any = await testsAPI.getTests();
 
     return {
         props: {
@@ -50,5 +50,5 @@ interface pageProps extends Record<string, unknown> {
     subtitle1: string;
     subtitle2: string;
     advantages: block2[]
-    data: RecordsEntity[]
+    data: categoryOne[]
 }

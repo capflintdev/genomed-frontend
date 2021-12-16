@@ -50,13 +50,6 @@ const AutoComplete: FC<autoCompleteProps> = ({data}) => {
                 onClick={() => setIsComponentVisible(false)}
                 style={{
                     display: isComponentVisible ? "block" : "none",
-/*                    width: "200vw",
-                    height: "200vh",
-                    backgroundColor: "transparent",
-                    position: "fixed",
-                    zIndex: 0,
-                    top: 0,
-                    left: 0*/
                 }}
             />
             <div>
