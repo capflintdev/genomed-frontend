@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
-import {categoryOne, recordsAll, test} from '../../../interfaces/page.interface';
+import {categoryOne, test} from '../../../interfaces/page.interface';
 import {categoryAPI, testsAPI} from '../../../api/api';
 import {withLayout} from '../../../layout/Layout';
 import styles from "./category.module.css";
