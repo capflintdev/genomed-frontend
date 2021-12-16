@@ -78,16 +78,16 @@ export const Footer = ({...props}: FooterProps): JSX.Element => {
                             <p>ООО "Геномед", ОГРН 1077763509977</p>
                             <div className={styles.iconSoc}>
                                 <a href="https://vk.com/club49260280" target="_blank" rel="noreferrer">
-                                    <Image src={vkIcon}  quality={100} width={25} height={25}/>
+                                    <Image src={vkIcon}  quality={100} width={25} height={25} alt={'вконтакте'}/>
                                 </a>
                                 <a href="https://www.facebook.com/GenomedRU/" target="_blank" rel="noreferrer">
-                                    <Image src={fbIcon}  quality={100} width={25} height={25}/>
+                                    <Image src={fbIcon}  quality={100} width={25} height={25} alt={'facebook'}/>
                                 </a>
                                 <a href="https://www.instagram.com/genomed.ru/" target="_blank" rel="noreferrer">
-                                    <Image src={instaIcon}  quality={100} width={25} height={25}/>
+                                    <Image src={instaIcon}  quality={100} width={25} height={25} alt={'инстаграмм'}/>
                                 </a>
                                 <a href="#" target="_blank" rel="noreferrer">
-                                    <Image src={jjIcon}  quality={100} width={25} height={25}/>
+                                    <Image src={jjIcon}  quality={100} width={25} height={25} alt={'jj'}/>
                                 </a>
                             </div>
                         </div>

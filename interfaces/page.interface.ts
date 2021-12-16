@@ -4,18 +4,33 @@ export interface RecordsAll {
 }
 
 export interface RecordsEntity { // один тест
-    id: string;
-    article: string;
-    category: string;
     category_path: string;
+    tests: testsAll[];
+    price_id: string;
+    article: string;
     name: string;
     shortinfo: string;
-    longinfo: string;
-    details: string;
-    indications: string;
-    preparation: string;
-    methods: string;
-    howto: string;
-    results: string;
+    longinfo?: null;
     price: string;
 }
+
+export interface testsAll {
+    price_id: string;
+    article: string;
+    name: string;
+    shortinfo: string;
+    longinfo?: null;
+    price: string;
+}
+
+
+export interface allTestsInCategory {
+    price_id: string;
+    article: string;
+    name: string;
+    shortinfo: string;
+    longinfo?: null;
+    price: string;
+}
+
+
