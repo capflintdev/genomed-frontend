@@ -69,7 +69,7 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
     };
     useEffect(() => {
         setItems(buildMenu())
-    }, [data])
+    }, [data]);
 
     return (
         <div className={styles.wrapper} {...props}>
@@ -136,5 +136,5 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
