@@ -126,11 +126,11 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
                                     {itemsMenu[active] && <TabContent {...itemsMenu[active]} />}
                                 </div>
                             </li>
-                            <li>Медицинские офисы <Image src={MenuArrow} alt={'стрелка'}/></li>
-                            <li>Лаборатория <Image src={MenuArrow} alt={'стрелка'}/></li>
-                            <li>Выезд на дом <Image src={MenuArrow} alt={'стрелка'}/></li>
-                            <li>Журнал <Image src={MenuArrow} alt={'стрелка'}/></li>
-                            <li>О компании <Image src={MenuArrow} alt={'стрелка'}/></li>
+                            <li><a href={"https://genomed.ru/contacts"}>Медицинские офисы</a> <Image src={MenuArrow} alt={'стрелка'}/></li>
+                            <li><a href={"https://genomed.ru/laboratoriya"}>Лаборатория</a> <Image src={MenuArrow} alt={'стрелка'}/></li>
+                            <li><a href={"https://genomed.ru/vyiezd-na-dom"}>Выезд на дом</a> <Image src={MenuArrow} alt={'стрелка'}/></li>
+                            <li><a href={"https://genomed.ru/journal"}>Журнал</a> <Image src={MenuArrow} alt={'стрелка'}/></li>
+                            <li><a href={"https://genomed.ru/about"}>О компании</a> <Image src={MenuArrow} alt={'стрелка'}/></li>
                         </ul>
                     </div>
                 </div>
