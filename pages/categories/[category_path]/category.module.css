@@ -1,3 +1,28 @@
+.categoryPage {
+	padding-bottom: 100px;
+}
+
+.categoryWrap {
+	display: flex;
+}
+
+.sidebar {
+	margin-right: 40px;
+}
+
+.tests {
+	flex: 0 1 920px;
+}
+
+.testsItem {
+	margin-bottom: 30px;
+}
+
+.loadMore {
+	max-width: 230px;
+	margin: 0 auto;
+}
+
 .firstScreen {
 	margin-bottom: 100px;
 }

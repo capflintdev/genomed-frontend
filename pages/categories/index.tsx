@@ -1,26 +1,30 @@
 import { GetStaticProps } from "next";
 import Link from 'next/link';
-import { testsAPI } from '../../api/api';
-import { RecordsEntity } from '../../interfaces/page.interface';
+import { testsAPI} from '../../api/api';
 import { Layout } from '../../layout/Layout';
+import {categoryOne} from "../../interfaces/page.interface";
 
 
-function Categories({ categories }: HomeProps): JSX.Element {
+function Categories({ uniqCat }: HomeProps): JSX.Element {
+
+
+    const arr = [];
+    for(const key in uniqCat) arr.push(<li key={key}> <p><Link href={`/categories/${uniqCat[key]}`}><a>Категория: {key}</a></Link></p></li>);
 
     return (
         <Layout title="Категории">
-            <>
+             <div className={'container'}>
                 <h2>Категории</h2>
+                 <style jsx>{`
+                    h2 {
+                    margin-bottom: 30px}
+                   `}</style>
                 <ul>
                     {
-                        categories && categories.map((с, i) => (
-                            <li key={i}>
-                                <p><Link href={`/categories/${с}`}><a>Категория: {с}</a></Link></p>
-                            </li>
-                        ))
+                       arr
                     }
                 </ul>
-            </>
+             </div>
         </Layout>
     );
 }
@@ -29,33 +33,21 @@ export default Categories;
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 
-    const categories: string[] = await testsAPI.getTests().then(
-        (tests: RecordsEntity[]) => {
+    const tests: categoryOne[] = await testsAPI.getTests();
 
-            const uniqCategories: string[] = [];
-            tests.forEach(function (entry) {
-                for (const key in entry) {
-                    if (key === 'category') {
-                        uniqCategories.push(entry[key]);
-                    }
-                }
-            });
-
-            return Array.from(new Set(uniqCategories)).sort();
-        }
-    );
-
+    const categories = tests.map((t:categoryOne) => [t.category, t.category_path]);
+    const uniqCat = Object.fromEntries(categories);
 
     return {
         props: {
-            categories
+            uniqCat
         }
     };
 
 };
 
 interface HomeProps extends Record<string, unknown> {
-    categories: string[]
+    uniqCat: Record<string, unknown>
 }
 
 

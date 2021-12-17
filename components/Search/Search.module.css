@@ -1,0 +1,56 @@
+.root {
+	position: relative;
+
+	width: 100%;
+}
+
+.autoCompleteContainer {
+	position: absolute;
+	z-index: 1000;
+	top: calc(100% + 10px);
+	left: 0;
+
+	overflow-y: auto;
+
+	box-sizing: border-box;
+	width: 100%;
+	min-width: 320px;
+	max-height: 280px;
+	margin: 0;
+	padding: 20px 30px 0 30px;
+
+	list-style-type: none;
+
+	border-radius: 5px;
+	background: #FFF;
+	box-shadow: 0 4px 14px rgb(0 0 0 / 10%);
+}
+
+.autoCompleteItem {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0 0 20px 0;
+}
+
+.autoCompleteItemButton {
+	width: 100%;
+
+	text-align: left;
+
+	line-height: 32px;
+}
+
+.input {
+	box-sizing: border-box;
+	width: 100%;
+	height: 45px;
+
+	padding: 5px;
+
+	border: 2px solid #E5E5E5;
+	border-radius: 10px;
+}
+
+.input:focus {
+	outline: none;
+}

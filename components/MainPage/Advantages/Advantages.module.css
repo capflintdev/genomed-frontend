@@ -1,5 +1,5 @@
 .advantages {
-	padding: 60px 0 80px 0;
+	padding: 75px 0 70px 0;
 
 	background: #F0F4F7;
 }
@@ -25,13 +25,15 @@
 }
 
 .advantageImage {
-	margin-bottom: 10px;
+	margin-bottom: 25px;
 }
 
 .advantageTitle {
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 
-	font-size: 20px;
+	color: var(--primary);
+
+	font-size: 22px;
 	font-weight: 600;
 	line-height: 130%;
 }
@@ -41,6 +43,8 @@
 
 	text-align: center;
 
-	font-size: 16px;
-	line-height: 19px;
+	font-size: 18px;
+
+	font-weight: 500;
+	line-height: 150%;
 }

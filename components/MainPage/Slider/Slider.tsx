@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import styles from "./Slider.module.css";
 import CardProduct from "../../Card/CardProduct/CardProduct";
@@ -6,7 +6,8 @@ import CardProduct from "../../Card/CardProduct/CardProduct";
 
 const Slider = () => {
 
-    const [emblaRef, emblaApi] = useEmblaCarousel({slidesToScroll: 2})
+    const [emblaRef, emblaApi] = useEmblaCarousel({slidesToScroll: 2});
+
     useEffect(() => {
         if (emblaApi) {
             // Embla API is ready

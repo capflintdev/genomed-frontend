@@ -1,6 +1,6 @@
 import {FirstSectionProps} from "./FirstSection.props";
-import mainPageImage from '../../public/images/first-section.png';
-import categoryImage from '../../public/images/category-photo.png';
+import mainPageImage from './first-section.png';
+import categoryImage from '../../pages/categories/[category_path]/category-photo.png';
 
 
 export const mainPage: FirstSectionProps = {

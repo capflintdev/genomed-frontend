@@ -1,8 +1,10 @@
 .analyzes {
-	margin: 60px 0 100px 0;
+	margin: 100px 0 100px 0;
 }
 
 .analyzes h2 {
+	margin: 0 0 50px 0;
+
 	text-align: center;
 
 	font-size: 36px;
@@ -23,14 +25,4 @@
 
 .analyzesItem {
 	max-width: 680px;
-}
-
-.analyzes h2 {
-	margin: 0 0 50px 0;
-
-	text-align: center;
-
-	font-size: 36px;
-	font-weight: 600;
-	line-height: 42px;
 }

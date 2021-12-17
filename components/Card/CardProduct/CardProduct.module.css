@@ -9,6 +9,12 @@
 	grid-column-gap: 30px;
 }
 
+.cardLarge {
+	height: auto !important;
+	min-height: 280px;
+	padding: 25px 35px 50px 35px !important;
+}
+
 .cardLarge .content {
 	display: grid;
 	grid-template-columns: auto 230px;
@@ -41,6 +47,8 @@
 
 .buyBtn {
 	margin-bottom: 25px;
+
+	border-radius: 5px;
 }
 
 .buyBtn:hover {

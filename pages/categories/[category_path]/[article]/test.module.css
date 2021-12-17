@@ -4,7 +4,7 @@
 
 .firstBlock {
 	display: grid;
-	grid-template-columns: 920px 320px;
+	grid-template-columns: auto 420px;
 	grid-column-gap: 160px;
 
 	margin-bottom: 90px;
