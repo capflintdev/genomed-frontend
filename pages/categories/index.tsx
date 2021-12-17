@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next";
 import Link from 'next/link';
-import {tests2API, testsAPI} from '../../api/api';
-import { RecordsEntity } from '../../interfaces/page.interface';
+import { testsAPI} from '../../api/api';
 import { Layout } from '../../layout/Layout';
+import {categoryOne} from "../../interfaces/page.interface";
 
 
 function Categories({ uniqCat }: HomeProps): JSX.Element {
@@ -33,9 +33,9 @@ export default Categories;
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 
-    const tests: RecordsEntity[] = await tests2API.getTests();
+    const tests: categoryOne[] = await testsAPI.getTests();
 
-    const categories = tests.map(t => [t.category, t.category_path]);
+    const categories = tests.map((t:categoryOne) => [t.category, t.category_path]);
     const uniqCat = Object.fromEntries(categories);
 
     return {

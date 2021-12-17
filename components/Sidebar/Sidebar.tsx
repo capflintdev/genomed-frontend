@@ -1,19 +1,30 @@
 import styles from './Sidebar.module.css';
+import Link from "next/link";
+import {useRouter} from "next/router";
+import cn from 'classnames';
 
-const Sidebar = () => {
+const Sidebar = ({data}:any) => {
+
+    const router = useRouter();
+    console.log(router)
+
     return (
         <nav className={styles.nav}>
-            <p className={styles.navTitle}>Оксидативный стресс</p>
             <ul className={styles.navItems}>
-                <li><a href="#">Стероидные гормоны</a></li>
-                <li><a href="#">Нейромедиаторы</a></li>
-                <li><a href="#">Аминокислоты</a></li>
-                <li><a href="#">Жирные кислоты</a></li>
-                <li><a href="#">Микроэлементы</a></li>
-                <li><a href="#">Витамины</a></li>
+                { data.map((item:any, index:number) => (
+                    <li key={index} className={cn(styles.item, {
+                        [styles.active] : router.asPath.split('/')[2] === item['category_path']
+                    })}>
+                        <Link href={`/categories/${item['category_path']}`}>
+                            <a>{item['category']}</a>
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </nav>
     );
 };
 
 export default Sidebar;
+
+

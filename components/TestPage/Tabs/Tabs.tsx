@@ -33,7 +33,7 @@ const TabTitle: React.FC<tabTitleProps> = ({ title, setSelectedTab, index, selec
 };
 
 /*
-
+доработать раскидать по файлам
 */
 
 type TabsProps = {
@@ -43,7 +43,7 @@ type TabsProps = {
 
 const Tabs: React.FC<TabsProps>= ({ children} ) => {
     const [selectedTab, setSelectedTab] = useState(0);
-console.log(selectedTab)
+
     return (
         <div>
             <ul className={styles.tabsTitleWrap}>

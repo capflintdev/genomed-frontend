@@ -1,26 +1,25 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
-import { RecordsEntity } from '../../../interfaces/page.interface';
-import { categoryAPI2, tests2API} from '../../../api/api';
-import { Layout } from '../../../layout/Layout';
-import styles from "../../category.module.css";
+import {categoryOne, test} from '../../../interfaces/page.interface';
+import {categoryAPI, testsAPI} from '../../../api/api';
+import {withLayout} from '../../../layout/Layout';
+import styles from "./category.module.css";
 import Image from "next/image";
-import mainPageImage from "../../../public/images/category-photo.png";
+import mainPageImage from "./category-photo.png";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import CardProduct from "../../../components/Card/CardProduct/CardProduct";
 import {Button} from "../../../components/Button/Button";
 
-function Category({ tests, category }: pageProps): JSX.Element {
+function Category({ tests, category, category_path ,data }: pageProps): JSX.Element {
 
     return (
-        <Layout title="Категория">
             <div className={styles.categoryPage}>
                 <section className={styles.firstScreen}>
                     <div className="container">
                         <div className={styles.firstScreenWrap}>
                             <div className={styles.firstScreenText}>
-                                <h1>{tests[0].category}</h1>
+                                <h1>{category.category}</h1>
                                 <div className={styles.firstScreenDesc}>
                                     <p>Сегодня как никогда актуальна проблема негативного влияния свободных радикалов на репродуктивную
                                         функцию у мужчин.</p>
@@ -39,6 +38,7 @@ function Category({ tests, category }: pageProps): JSX.Element {
                                         width={680}
                                         height={500}
                                         quality={100}
+                                        priority
                                         alt="главный баннер"
                                     />
                                 </div>
@@ -49,13 +49,13 @@ function Category({ tests, category }: pageProps): JSX.Element {
                 <div className="container">
                     <div className={styles.categoryWrap}>
                         <div className={styles.sidebar}>
-                            <Sidebar/>
+                            <Sidebar data={data}/>
                         </div>
                         <div className={styles.tests}>
                             {
                                 tests && tests.map(
                                     (t) =>  <div className={styles.testsItem}>
-                                        <CardProduct size={'l'} test={t} category={tests[0].category_path}/>
+                                        <CardProduct size={'l'} test={t} category={category_path}/>
                                     </div>
                                 )
                             }
@@ -64,19 +64,18 @@ function Category({ tests, category }: pageProps): JSX.Element {
                     </div>
                 </div>
             </div>
-        </Layout>
+
     );
 }
 
-export default Category;
+export default  withLayout(Category);
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-    const tests: RecordsEntity[] = await tests2API.getTests();
+    const categoryAll: categoryOne[] = await testsAPI.getTests();
+    const paths: string[] = categoryAll.map((t:categoryOne) => '/categories/' + t['category_path']);
 
-    const paths = tests.map(t => '/categories/' + t['category_path'])
 
-    
     return {
         paths,
         fallback: false
@@ -84,22 +83,33 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<pageProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
+    if (!params) {
+        return {
+            notFound: true
+        };
+    }
 
     const { category_path } = params as IParams;
-    const tests: RecordsEntity[] = await categoryAPI2.getCategory(category_path);
-
+    const tests: test[] = await categoryAPI.getCategory(category_path).then(response => response[0].tests);
+    const category: categoryOne  = await categoryAPI.getCategory(category_path).then(response => response[0]);
+    const data: categoryOne[] = await testsAPI.getTests();
 
     return {
         props: {
             tests,
-            category_path
+            category_path,
+            data,
+            category
         }
     };
 };
 
 
 interface pageProps extends Record<string, unknown> {
-    tests: RecordsEntity[];
+    tests: test[]
+    data: categoryOne[]
+    category: categoryOne
+    category_path: string
 }
 
 interface IParams extends ParsedUrlQuery {

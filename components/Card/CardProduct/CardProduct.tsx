@@ -18,7 +18,7 @@ const CardProduct = ({size, test, category} : CardProductProps) => {
                     <div className={styles.shortDesc}>
                         {test && test.shortinfo || 'Марганец необходим для формирования костной ткани, в процесса синтеза белков, АТФ, а также для регуляции клеточного метаболизма'}
                     </div>
-                    <div className={stylesCard.id}>id {test && test.id || '100500'}</div>
+
                 </div>
                 <div className={stylesCard.buy}>
                     <div className={stylesCard.price}>{test && test.price || '1000'} ₽</div>
@@ -26,7 +26,7 @@ const CardProduct = ({size, test, category} : CardProductProps) => {
                         <Button appearance={'primary'}>Купить</Button>
                     </div>
                     <div className={styles.moreBtn}>
-                        <Link href={`/categories/${category}/${test && test.id}`}><a>Подробнее</a></Link>
+                        <Link href={`/categories/${category}/${test && test.article}`}><a>Подробнее</a></Link>
                     </div>
                 </div>
             </div>

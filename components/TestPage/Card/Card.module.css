@@ -1,7 +1,10 @@
 .card {
-	width: 319px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 25px auto 100px 55px;
+	width: 420px;
 	height: 393px;
-	padding: 45px 50px 0 50px;
+	padding: 45px 50px 45px 50px;
 
 	text-align: center;
 
