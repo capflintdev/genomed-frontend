@@ -12,7 +12,7 @@ interface autoCompleteProps {
     data: any;
 }
 
-/* доработать типизацию, когда появится норм апишка*/
+/* доработать типизацию*/
 
 const AutoComplete: FC<autoCompleteProps> = ({data}) => {
     const [search, setSearch] = useState({
@@ -27,7 +27,24 @@ const AutoComplete: FC<autoCompleteProps> = ({data}) => {
         let suggestions: any = [];
         if (value.length > 0) {
             const regex = new RegExp(`^${value}`, "i");
-            suggestions = data.sort().filter((v: IData) => regex.test(v.name));
+
+/*
+            const items = []
+            data.map((menu: any, index: number) => {
+                    return (
+                        menu.tests.map((item: any, index: number) => {
+                            items.push(item.name)
+                        })
+                    );
+                }
+            );
+
+
+            console.log(items)
+
+             suggestions = items*/
+             suggestions = data.sort().filter((v: IData) => regex.test(v.name));
+
         }
         setIsComponentVisible(true);
         setSearch({suggestions, text: value});
@@ -71,7 +88,7 @@ const AutoComplete: FC<autoCompleteProps> = ({data}) => {
                                     <div className={styles.autoCompleteItemButton}
                                          onClick={() => suggestionSelected(item)}
                                     >
-                                        {item.name}
+                                        {item}
                                     </div>
                                 </a>
                             </Link>
