@@ -1,11 +1,11 @@
 import {withLayout} from '../layout/Layout';
 import FirstSection from "../components/FirstSection/FirstSection";
-import Slider from "../components/MainPage/Slider/Slider";
-import Advantages from "../components/MainPage/Advantages/Advantages";
-import Analyzes from "../components/MainPage/Analyzes/Analyzes";
+import Slider from "../components/HomePage/Slider/Slider";
+import Advantages from "../components/HomePage/Advantages/Advantages";
+import Analyzes from "../components/HomePage/Analyzes/Analyzes";
 import {GetStaticProps} from "next";
-import { testsAPI, wpAPI} from "../api/api";
-import {categoryOne} from "../interfaces/page.interface";
+import {testsAPI, wpAPI} from "../api/api";
+import {oneCategory} from "../interfaces/page.interface";
 import {block2} from "../interfaces/wp.interface";
 import React from "react";
 
@@ -14,10 +14,10 @@ function Home({...props}: pageProps): JSX.Element {
 
     return (
         <>
-            <FirstSection {...props}/>
-            <Slider/>
+            <FirstSection titleH1={props.titleH1} subtitle1={props.subtitle1} subtitle2={props.subtitle2}/>
+            <Slider data={props.data}/>
             <Advantages {...props.advantages}/>
-            <Analyzes/>
+            <Analyzes data={props.data}/>
         </>
     );
 }
@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps<pageProps> = async () => {
     const advantages: block2[] = await wpAPI.getDataWP().then(response => response["block-2"]);
 
 
-    const data: any = await testsAPI.getTests();
+    const data: oneCategory[] = await testsAPI.getTests();
 
     return {
         props: {
@@ -50,5 +50,5 @@ interface pageProps extends Record<string, unknown> {
     subtitle1: string;
     subtitle2: string;
     advantages: block2[]
-    data: categoryOne[]
+    data: oneCategory[]
 }

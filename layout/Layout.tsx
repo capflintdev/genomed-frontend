@@ -4,7 +4,7 @@ import React, {FunctionComponent} from 'react';
 import {Footer} from './Footer/Footer';
 import Head from 'next/head';
 import {useRouter} from 'next/dist/client/router';
-import {AppContextProvider, IAppContext} from "../Context/Context";
+import {AppContextProvider, IAppContext} from "../context/Context";
 
 export const Layout = ({children, title = 'Геномед', ...props}: LayoutProps): JSX.Element => {
 

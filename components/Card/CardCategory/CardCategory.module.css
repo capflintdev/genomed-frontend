@@ -1,6 +1,7 @@
 .tag {
 	color: var(--blue);
 	border: 1px solid var(--blue);
+	margin-bottom: 15px;
 }
 
 .content {

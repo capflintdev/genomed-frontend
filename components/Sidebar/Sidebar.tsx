@@ -6,7 +6,7 @@ import cn from 'classnames';
 const Sidebar = ({data}:any) => {
 
     const router = useRouter();
-    console.log(router)
+
 
     return (
         <nav className={styles.nav}>

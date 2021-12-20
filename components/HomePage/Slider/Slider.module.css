@@ -1,0 +1,35 @@
+.slider {
+	margin-bottom: 60px;
+}
+
+.container {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.slide {
+	position: relative;
+
+	max-width: 680px;
+}
+.dots {
+	display: flex;
+	padding: 10px 0;
+	justify-content: center;
+}
+
+.swiper-pagination-bullet {
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	font-size: 12px;
+	color: #000;
+	opacity: 1;
+	background: rgba(0, 0, 0, 0.2);
+}
+
+.swiper-pagination-bullet-active {
+	color: #fff;
+	background: #007aff;
+}

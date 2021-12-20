@@ -12,7 +12,7 @@ const Advantages = ({...advantages}: block2[]) => {
 
     return (
         <section className={styles.advantages}>
-            <div className="container">
+            <div className={"container"}>
                 <h2>
                     Геномед - лаборатория персонализированной медицины
                 </h2>
