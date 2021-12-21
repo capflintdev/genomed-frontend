@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
-import {categoryOne, test} from '../../../../interfaces/page.interface';
+import {oneCategory, test} from '../../../../interfaces/page.interface';
 import {testAPI, testsAPI} from '../../../../api/api';
 import { withLayout} from '../../../../layout/Layout';
 import styles from "./test.module.css";
@@ -14,7 +14,7 @@ function Test({ test }: pageProps): JSX.Element {
 
     return (
         <div className={styles.testPage}>
-            <div className="container">
+            <div className={"container"}>
                 <section className={styles.firstBlock}>
                     <GeneralInfo {...test}/>
                     <Card {...test}/>
@@ -38,11 +38,11 @@ export default withLayout(Test);
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-   const tests: categoryOne[] = await testsAPI.getTests();
+   const tests: oneCategory[] = await testsAPI.getTests();
 
     const paths:any = [];
 
-    tests.forEach(function(item: categoryOne, index) {
+    tests.forEach(function(item: oneCategory, index) {
         const a:any = `/categories/${item['category_path']}/`;
 
         for (const key in item) {
@@ -70,9 +70,9 @@ export const getStaticProps: GetStaticProps<pageProps> = async ({ params }: GetS
 
     const { article } = params as IParams;
 
-    const tests: categoryOne[]  = await testsAPI.getTests();
+    const tests: oneCategory[]  = await testsAPI.getTests();
     const test: test = await testAPI.getTest(article);
-    const data: categoryOne[] = await testsAPI.getTests();
+    const data: oneCategory[] = await testsAPI.getTests();
 
     return {
         props: {
@@ -86,7 +86,7 @@ export const getStaticProps: GetStaticProps<pageProps> = async ({ params }: GetS
 
 interface pageProps extends Record<string, unknown> {
     test: test;
-    data: categoryOne[];
+    data: oneCategory[];
 }
 
 interface IParams extends ParsedUrlQuery {

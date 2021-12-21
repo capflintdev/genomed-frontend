@@ -5,7 +5,7 @@ import mainPageImage from './first-section.png';
 const FirstSection = ({titleH1, subtitle1, subtitle2}: FirstSectionProps) => {
     return (
         <section className={styles.firstScreen}>
-            <div className="container">
+            <div className={"container"}>
                 <div className={styles.firstScreenWrap}>
                     <div className={styles.firstScreenText}>
                         <h1>{titleH1 || 'Заголовок'}</h1>

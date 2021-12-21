@@ -1,9 +1,9 @@
 import {createContext, PropsWithChildren} from 'react';
-import {categoryOne} from "../interfaces/page.interface";
+import {oneCategory} from "../interfaces/page.interface";
 
 
 export interface IAppContext {
-    data: categoryOne[]
+    data: oneCategory[]
 }
 
 export const AppContext = createContext<IAppContext>({data: []});

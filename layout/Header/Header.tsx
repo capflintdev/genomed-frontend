@@ -6,7 +6,7 @@ import Logo from '../Header/logo.png';
 import MenuArrow from '../Header/arrow.svg';
 import Link from "next/link";
 import {useContext, useEffect, useState} from "react";
-import {AppContext} from "../../Context/Context";
+import {AppContext} from "../../context/Context";
 import AutoComplete from "../../components/Search/Search";
 import {Button} from "../../components/Button/Button";
 
@@ -26,7 +26,7 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
     const data: any = useContext(AppContext);
 
 
-    const [itemsMenu, setItems] = useState([])
+    const [itemsMenu, setItems] = useState([]);
     const [active, setActive] = useState(0);
     const openTab = (e:any) => {
         setActive(e.currentTarget.getAttribute('data-index'));
@@ -36,7 +36,7 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
 
     /*строим меню из входящего объекта всех тестов*/
     const buildMenu = () => {
-        const items: any = []
+        const items: any = [];
         {
             data.data.map((menu: any, index: number) =>
                 <>
@@ -68,7 +68,7 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
         );
     };
     useEffect(() => {
-        setItems(buildMenu())
+        setItems(buildMenu());
     }, [data]);
 
     return (
@@ -80,7 +80,7 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
                     <a href="tel:84956608377" className={styles.num2}> 8 495 660-83-77 </a>
                 </div>
             </div>
-            <div className="container">
+            <div className={"container"}>
                 <div className={styles.headerMain}>
                     <div className={cn(styles.container, styles.headerMainContent)}>
                         <Link href={'/'}>

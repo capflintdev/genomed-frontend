@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {dataWP} from "../interfaces/wp.interface";
-import {categoryOne, recordsAll} from "../interfaces/page.interface";
+import {oneCategory, recordsAll} from "../interfaces/page.interface";
 import {test} from "../interfaces/page.interface";
 
 
