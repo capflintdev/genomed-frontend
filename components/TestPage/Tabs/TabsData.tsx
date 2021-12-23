@@ -59,4 +59,4 @@ const TabsData = () => {
     );
 };
 
-export default TabsData
+export default TabsData;
