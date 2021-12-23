@@ -16,8 +16,9 @@
 	width: 100%;
 	min-width: 320px;
 	max-height: 280px;
+	min-height: 100px;
 	margin: 0;
-	padding: 20px 30px 0 30px;
+	padding: 20px 30px 20px 30px;
 
 	list-style-type: none;
 
@@ -26,26 +27,30 @@
 	box-shadow: 0 4px 14px rgb(0 0 0 / 10%);
 }
 
+.autoCompleteContainer.emptyContainer {
+	display: flex;
+	align-items: center;
+}
+
 .autoCompleteItem {
 	box-sizing: border-box;
 	width: 100%;
 	padding: 0 0 20px 0;
-}
-
-.autoCompleteItemButton {
 	width: 100%;
 
 	text-align: left;
-
+	font-feature-settings: 'pnum' on, 'lnum' on;
 	line-height: 32px;
 }
+
+
 
 .input {
 	box-sizing: border-box;
 	width: 100%;
 	height: 45px;
 
-	padding: 5px;
+	padding: 5px 5px 5px 20px;
 
 	border: 2px solid #E5E5E5;
 	border-radius: 10px;
@@ -54,3 +59,34 @@
 .input:focus {
 	outline: none;
 }
+
+.input::placeholder {
+	font-family: 'Raleway', sans-serif;
+	color: #D4D8DB;
+	font-weight: 500;
+}
+
+.searchBar {
+	position: relative;
+}
+
+.iconSearch {
+	position: absolute;
+	right: 15px;
+	top: 12px;
+}
+
+.searchLink:hover {
+	color: var(--primary)
+}
+
+.searchLink {
+	display: flex;
+	justify-content: space-between;
+}
+
+.price {
+	font-weight: 500;
+}
+
+

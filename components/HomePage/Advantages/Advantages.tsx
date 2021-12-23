@@ -38,4 +38,4 @@ const Advantages = ({...advantages}: block2[]) => {
     );
 };
 
-export default Advantages
+export default Advantages;

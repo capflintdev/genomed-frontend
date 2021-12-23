@@ -42,12 +42,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     const paths:any = [];
 
-    tests.forEach(function(item: oneCategory, index) {
+    tests.forEach(function(item: oneCategory) {
         const a:any = `/categories/${item['category_path']}/`;
 
         for (const key in item) {
             if (key === 'tests') {
-                item['tests'].forEach(function(item, index) {
+                item['tests'].forEach(function(item) {
                     const b:string = item.article;
                     paths.push(a + b);
                 });
