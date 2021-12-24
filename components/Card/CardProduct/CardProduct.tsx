@@ -23,7 +23,11 @@ const CardProduct = ({size, test, category} : CardProductProps) => {
                 <div className={stylesCard.buy}>
                     <div className={stylesCard.price}>{test && test.price || '1000'} ₽</div>
                     <div className={stylesCard.buyBtn}>
-                        <Button appearance={'primary'}>Купить</Button>
+                        <Link href={`http://price.genomed.ru/?order_tests=${test?.price_id}`}>
+                            <a target="_blank">
+                                <Button appearance={'primary'}>Купить</Button>
+                            </a>
+                        </Link>
                     </div>
                     <div className={styles.moreBtn}>
                         <Link href={`/categories/${category}/${test && test.article}`}><a>Подробнее</a></Link>
