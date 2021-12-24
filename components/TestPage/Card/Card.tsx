@@ -6,7 +6,7 @@ import {priceRu} from "../../../helpers/helpers";
 const Card = ({...test}) => {
     return (
         <div className={styles.card}>
-            <div className={styles.id}>id 100500</div>
+            <div className={styles.id}>id {test.price_id}</div>
             <div
                 className={styles.title}>{test.name}</div>
             <div className={styles.price}>{priceRu(test.price)}</div>
