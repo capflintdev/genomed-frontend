@@ -11,7 +11,7 @@ import styles from "./Slider.module.css";
 const Slider = ({data}: sliderProps) => {
 
     const [slides, setSlides] = useState<testWithPath[]>([]);
-    const slidesArticles: string[] = ['GH23', 'M95', 'GH18'];
+    const slidesArticles: string[] = ['GH23', 'M95', 'GH18', 'V09.2'];
 
     useEffect(() => {
         const testsWithPath: testWithPath[] = [];
@@ -44,13 +44,18 @@ const Slider = ({data}: sliderProps) => {
                         <Swiper
                             spaceBetween={40}
                             slidesPerView={2}
+                            slidesPerGroup={2}
                         >
                             {
                                 slides.map((item, index) => {
                                     return (
-                                        <SwiperSlide>
-                                            <div className={cn(styles.slide)}>
-                                                <CardProduct size={'m'} test={item} category={item.category_path}/>
+                                        <SwiperSlide key={index}>
+                                            <div className={cn(styles.slide)} >
+                                                <CardProduct
+                                                    size={'m'}
+                                                    test={item}
+                                                    category={item.category_path}
+                                                />
                                             </div>
                                         </SwiperSlide>
                                     );
@@ -75,7 +80,13 @@ interface testWithPath {
     article: string;
     name: string;
     shortinfo: string;
-    longinfo?: null;
+    longinfo?: string;
+    details: string;
+    indications: string;
+    preparation: string;
+    methods: string;
+    howto: string;
+    results: string;
     price: string;
 }
 
