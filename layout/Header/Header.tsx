@@ -2,7 +2,7 @@ import {HeaderProps} from './Header.props';
 import styles from './Header.module.css';
 import cn from 'classnames';
 import Image from "next/image";
-import Logo from '../Header/logo.png';
+import Logo from '../Header/logo-genomed.png';
 import MenuArrow from '../Header/arrow.svg';
 import Link from "next/link";
 import {useContext, useEffect, useState} from "react";
