@@ -20,7 +20,14 @@ function Test({ test }: pageProps): JSX.Element {
                     <Card {...test}/>
                 </section>
                 <section className={styles.tabs}>
-                    <TabsData/>
+                    <TabsData
+                        details={test.details}
+                        indications={test.indications}
+                        preparation={test.preparation}
+                        methods={test.methods}
+                        howto={test.howto}
+                        results={test.results}
+                    />
                 </section>
                 <section className={styles.relatedTests}>
                     <h2>С этим исследованием также назначают</h2>

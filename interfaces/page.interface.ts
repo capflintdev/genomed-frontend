@@ -13,7 +13,13 @@ export interface test {
     article: string;
     name: string;
     shortinfo: string;
-    longinfo?: null;
+    longinfo?: string;
+    details: string;
+    indications: string;
+    preparation: string;
+    methods: string;
+    howto: string;
+    results: string;
     price: string;
 }
 

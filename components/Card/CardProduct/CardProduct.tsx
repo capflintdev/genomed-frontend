@@ -1,5 +1,5 @@
-import stylesCard from "./CardProduct.module.css";
 import styles from "../Card.module.css";
+import stylesCard from "./CardProduct.module.css";
 import cn from 'classnames';
 import {Button} from "../../Button/Button";
 import {CardProductProps} from './CardProduct.props';
