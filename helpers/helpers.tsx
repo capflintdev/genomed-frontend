@@ -7,11 +7,11 @@ export const parseDataFunc = (str: string) => {
     parts.forEach((item: string, index: number) => {
         result.push(<p key={index}>{item}</p>);
     });
-    return <p>{result}</p>;
+    return <>{result}</>;
 };
 
 export function translit(word: string){
-    const converter:any = {
+    const converter:Record<string, string> = {
         'а': 'a',    'б': 'b',    'в': 'v',    'г': 'g',    'д': 'd',
         'е': 'e',    'ё': 'e',    'ж': 'zh',   'з': 'z',    'и': 'i',
         'й': 'y',    'к': 'k',    'л': 'l',    'м': 'm',    'н': 'n',

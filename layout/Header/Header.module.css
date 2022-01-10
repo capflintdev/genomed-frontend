@@ -16,14 +16,15 @@
 	grid-template-areas: ". logo search learn call .";
 
 	gap: 25px;
+	margin-bottom: 40px;
 }
 
 .headerMainContent {
 	display: grid;
-	align-items: center;
+	align-items: flex-end;
 
 	justify-content: center;
-	grid-template-columns: auto 1fr 194px 194px;
+	grid-template-columns: 150px 1fr 194px 194px;
 	grid-template-rows: 100px;
 	grid-template-areas: " logo search learn call";
 
@@ -35,10 +36,10 @@
 
 	display: flex;
 	align-items: center;
+	max-width: 148px;
 }
 
 .search {
-	max-width: 726px;
 	grid-area: search;
 }
 
@@ -173,7 +174,7 @@
 
 	background: #FFF;
 	box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.06);
-	grid-template-columns: 400px 400px;
+	grid-template-columns: 400px auto;
 }
 
 .tablinks {
@@ -187,7 +188,7 @@
 	line-height: 19px;
 }
 
-.tablinks a:hover {
+.tablinks a:hover, .tabContent a:hover {
 	color: var(--primary);
 }
 
@@ -197,6 +198,7 @@
 
 .tabContent {
 	padding-left: 35px;
+	overflow-y: auto;
 }
 
 .tabContentItem {

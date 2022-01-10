@@ -33,3 +33,8 @@
 	color: #fff;
 	background: #007aff;
 }
+
+.swiper-pagination {
+	bottom: 0;
+	padding-bottom: 10px;
+}

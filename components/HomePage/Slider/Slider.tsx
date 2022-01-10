@@ -4,9 +4,13 @@ import {oneCategory} from "../../../interfaces/page.interface";
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import "swiper/css/pagination";
+import 'swiper/css/navigation';
+import SwiperCore, {
+    Pagination
+} from 'swiper';
 import styles from "./Slider.module.css";
 
+SwiperCore.use([Pagination]);
 
 const Slider = ({data}: sliderProps) => {
 
@@ -36,7 +40,6 @@ const Slider = ({data}: sliderProps) => {
 
     }, [data]);
 
-
     return (
         <section className={styles.slider}>
             <div className={styles.container}>
@@ -45,6 +48,7 @@ const Slider = ({data}: sliderProps) => {
                             spaceBetween={40}
                             slidesPerView={2}
                             slidesPerGroup={2}
+                            pagination={true}
                         >
                             {
                                 slides.map((item, index) => {
@@ -63,7 +67,7 @@ const Slider = ({data}: sliderProps) => {
                             }
                         </Swiper>
                     </div>
-                </div>
+            </div>
         </section>
     );
 };

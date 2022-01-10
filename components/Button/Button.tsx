@@ -14,7 +14,7 @@ export const Button = ({appearance, href, children, className, ...props}: Button
         >
             {
                 href
-                    ? <a href={href}>{children}</a>
+                    ? <a href={href} target={"_blank"}>{children}</a>
                     : <>{children}</>
             }
         </div>

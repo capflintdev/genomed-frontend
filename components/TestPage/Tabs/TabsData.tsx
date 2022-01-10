@@ -1,6 +1,6 @@
 import Tabs from "./Tabs";
 import TabContent from "./TabContent";
-import {ReactNode, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {parseDataFunc} from "../../../helpers/helpers";
 
 const TabsData = ({details, indications, preparation, methods, howto, results}: TabsDataProps) => {
@@ -16,8 +16,8 @@ const TabsData = ({details, indications, preparation, methods, howto, results}: 
 
     useEffect(() => {
         setParseData(
-            (prevState: Record<string, string>): Record<string, ReactNode> => {
-                const obj: Record<string, ReactNode> = {};
+            (prevState: Record<string, string>): Record<string, JSX.Element> => {
+                const obj: Record<string, JSX.Element> = {};
                 for (const key in prevState) {
                     obj[key] = parseDataFunc(prevState[key]);
                 }
