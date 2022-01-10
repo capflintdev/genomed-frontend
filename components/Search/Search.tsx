@@ -5,7 +5,7 @@ import {oneCategory} from "../../interfaces/page.interface";
 import SearchIcon from './search.svg';
 import Image from "next/image";
 import cn from 'classnames';
-import {priceRu} from "../../helpers/helpers";
+import {priceRu, translit} from "../../helpers/helpers";
 import useOnClickOutside from "../../helpers/onClickOutside";
 
 interface autoCompleteProps {
@@ -106,7 +106,7 @@ const AutoComplete = ({data}: autoCompleteProps) => {
                 <div className={styles.autoCompleteContainer}>
                     {suggestions.map((item: testWithPath) => (
                         <div className={styles.autoCompleteItem} key={item.article}>
-                            <Link href={`/categories/${item.category_path}/${item.article}/`}>
+                            <Link href={`/categories/${item.category_path}/${translit(item.name)}&article=${item.article}`}>
                                 <a className={styles.searchLink} onClick={() => suggestionSelected()}>
                                     <div>{item.name}</div>
                                     <div className={styles.price}>{priceRu(item.price)}</div>

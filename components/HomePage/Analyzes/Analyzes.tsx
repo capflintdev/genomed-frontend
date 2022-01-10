@@ -1,12 +1,13 @@
 import styles from './Analyzes.module.css';
 import CardCategory from "../../Card/CardCategory/CardCategory";
 import {oneCategory} from "../../../interfaces/page.interface";
+import Container from "../../Container/Container";
 
 const Analyzes = ({data}: pageProps ) => {
 
     return (
         <section className={styles.analyzes}>
-            <div className={"container"}>
+            <Container>
                 <h2>Анализы</h2>
                 <div className={styles.analyzesWrap}>
                     {
@@ -23,7 +24,7 @@ const Analyzes = ({data}: pageProps ) => {
                         })
                     }
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

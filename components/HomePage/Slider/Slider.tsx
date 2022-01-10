@@ -9,6 +9,7 @@ import SwiperCore, {
     Pagination
 } from 'swiper';
 import styles from "./Slider.module.css";
+import Container from "../../Container/Container";
 
 SwiperCore.use([Pagination]);
 
@@ -42,7 +43,7 @@ const Slider = ({data}: sliderProps) => {
 
     return (
         <section className={styles.slider}>
-            <div className={styles.container}>
+            <Container>
                     <div className={cn(styles.slider )}>
                         <Swiper
                             spaceBetween={40}
@@ -67,7 +68,7 @@ const Slider = ({data}: sliderProps) => {
                             }
                         </Swiper>
                     </div>
-            </div>
+            </Container>
         </section>
     );
 };

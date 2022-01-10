@@ -1,22 +1,17 @@
-import {HeaderProps} from './Header.props';
 import styles from './Header.module.css';
 import cn from 'classnames';
 import Image from "next/image";
 import Logo from '../Header/logo-genomed.png';
 import MenuArrow from '../Header/arrow.svg';
 import Link from "next/link";
-import { useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {AppContext, IAppContext} from "../../context/Context";
 import AutoComplete from "../../components/Search/Search";
 import {Button} from "../../components/Button/Button";
 import {translit} from "../../helpers/helpers";
-import React from 'react';
-import { test} from "../../interfaces/page.interface";
+import {test} from "../../interfaces/page.interface";
+import Container from "../../components/Container/Container";
 
-interface TabContent {
-    'title': JSX.Element,
-    'content': JSX.Element
-}
 
 const TabContent = ({content}: TabContent) => (
     <div className={styles.tabContent}>
@@ -24,17 +19,16 @@ const TabContent = ({content}: TabContent) => (
     </div>
 );
 
-export const Header = ({...props}: HeaderProps): JSX.Element => {
+export const Header = (): JSX.Element => {
 
     const data: IAppContext = useContext(AppContext);
 
     const [itemsMenu, setItems] = useState<TabContent[]>([]);
     const [active, setActive] = useState<number>(0);
+    const [submenuShow, setSubmenuShow] = useState<boolean>(false);
     const openTab = (e: any) => {
         setActive(e.currentTarget.getAttribute('data-index'));
     };
-
-    const [submenuShow, setSubmenuShow] = useState<boolean>(false);
 
     /*строим меню из входящего объекта всех тестов*/
     const buildMenu = () => {
@@ -72,12 +66,14 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
             items
         );
     };
+
     useEffect(() => {
         setItems(buildMenu());
     }, [data]);
 
     return (
-        <div className={styles.wrapper} {...props}>
+
+        <div className={styles.wrapper}>
             <div className={styles.headerLocation}>
                 <div className={cn(styles.container, styles.headerLocationContent)}>
                     <p className={styles.city}>Ваш город: Москва </p>
@@ -85,7 +81,7 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
                     <a href="tel:84956608377" className={styles.num2}> 8 495 660-83-77 </a>
                 </div>
             </div>
-            <div className={"container"}>
+            <Container>
                 <div className={styles.headerMain}>
                     <div className={cn(styles.container, styles.headerMainContent)}>
                         <Link href={'/'}>
@@ -109,7 +105,6 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
                         <div className={styles.call}><Button appearance={'primary'}>Позвоните мне</Button></div>
                     </div>
                 </div>
-
                 <div className={styles.headerMenu}>
                     <div className={cn(styles.container, styles.headerMenuContent)}>
                         <ul>
@@ -118,7 +113,7 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
                                 onMouseLeave={() => setSubmenuShow(false)}
                             >
                                 Анализы и цены
-                                <span className={styles.arrow}><Image src={MenuArrow} alt={'стрелка'} /></span>
+                                <span className={styles.arrow}><Image src={MenuArrow} alt={'стрелка'}/></span>
                                 <div className={cn(styles.submenu, {
                                     [styles.active]: submenuShow
                                 })}
@@ -147,7 +142,13 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
                         </ul>
                     </div>
                 </div>
-            </div>
+            </Container>
         </div>
+
     );
 };
+
+interface TabContent {
+    'title': JSX.Element,
+    'content': JSX.Element
+}

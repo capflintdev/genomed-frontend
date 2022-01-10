@@ -1,11 +1,12 @@
 import styles from "./FirstSection.module.css";
 import Image from "next/image";
 import mainPageImage from './first-section.webp';
+import Container from "../Container/Container";
 
 const FirstSection = ({titleH1, subtitle1, subtitle2}: FirstSectionProps) => {
     return (
         <section className={styles.firstScreen}>
-            <div className={"container"}>
+            <Container>
                 <div className={styles.firstScreenWrap}>
                     <div className={styles.firstScreenText}>
                         <h1>{titleH1 || 'Заголовок'}</h1>
@@ -28,7 +29,7 @@ const FirstSection = ({titleH1, subtitle1, subtitle2}: FirstSectionProps) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };
