@@ -46,8 +46,10 @@ export const categoryAPI = {
 
 export const wpAPI = {
     async getDataWP() {
+
         const response = await instanceWP.get<dataWP>(`wp-json/wp/v2/pages?_fields[]=acf`);
         return response.data[1].acf;
+
     }
 };
 

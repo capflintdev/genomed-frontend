@@ -6,7 +6,7 @@ import {categoryAPI, testsAPI} from '../../../api/api';
 import {withLayout} from '../../../layout/Layout';
 import styles from "./category.module.css";
 import Image from "next/image";
-import mainPageImage from "./category-photo.png";
+import mainPageImage from "./category-photo.webp";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import CardProduct from "../../../components/Card/CardProduct/CardProduct";
 import {Button} from "../../../components/Button/Button";
@@ -34,7 +34,7 @@ function Category({ tests, category, category_path ,data }: pageProps): JSX.Elem
                                         width={680}
                                         height={500}
                                         quality={100}
-                                        priority
+                                        priority={true}
                                         alt="главный баннер"
                                     />
                                 </div>

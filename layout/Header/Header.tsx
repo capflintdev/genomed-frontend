@@ -9,6 +9,7 @@ import {useContext, useEffect, useState} from "react";
 import {AppContext} from "../../context/Context";
 import AutoComplete from "../../components/Search/Search";
 import {Button} from "../../components/Button/Button";
+import {translit} from "../../helpers/helpers";
 
 interface TabContent {
     'title': JSX.Element,
@@ -52,7 +53,7 @@ export const Header = ({...props}: HeaderProps): JSX.Element => {
                                 'content':
                                     menu.tests.map((item: any, index: number) => {
                                         return <div key={index} className={styles.tabContentItem} onClick={() => setSubmenuShow(false)}>
-                                            <Link href={`/categories/${menu.category_path}/${item.article}`}>
+                                            <Link href={`/categories/${menu.category_path}/${translit(item.name)}&article=${item.article}`}>
                                                 <a>{item.name}</a>
                                             </Link>
                                         </div>;

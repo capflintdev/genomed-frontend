@@ -1,6 +1,6 @@
 import styles from "./FirstSection.module.css";
 import Image from "next/image";
-import mainPageImage from './first-section.png';
+import mainPageImage from './first-section.webp';
 
 const FirstSection = ({titleH1, subtitle1, subtitle2}: FirstSectionProps) => {
     return (
@@ -22,7 +22,7 @@ const FirstSection = ({titleH1, subtitle1, subtitle2}: FirstSectionProps) => {
                                 width={680}
                                 height={500}
                                 quality={100}
-                                priority
+                                priority={true}
                                 alt="главный баннер"
                             />
                         </div>

@@ -4,6 +4,7 @@ import cn from 'classnames';
 import {Button} from "../../Button/Button";
 import {CardProductProps} from './CardProduct.props';
 import Link from "next/link";
+import {translit} from "../../../helpers/helpers";
 
 const CardProduct = ({size, test, category} : CardProductProps) => {
     return (
@@ -30,7 +31,7 @@ const CardProduct = ({size, test, category} : CardProductProps) => {
                         </Link>
                     </div>
                     <div className={styles.moreBtn}>
-                        <Link href={`/categories/${category}/${test && test.article}`}><a>Подробнее</a></Link>
+                        <Link href={`/categories/${category}/${test && translit(test.name)}&article=${test && test.article}`}><a>Подробнее</a></Link>
                     </div>
                 </div>
             </div>

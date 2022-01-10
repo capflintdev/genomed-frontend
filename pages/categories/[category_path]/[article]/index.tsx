@@ -1,16 +1,17 @@
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from 'next';
 import React from 'react';
-import { ParsedUrlQuery } from 'querystring';
+import {ParsedUrlQuery} from 'querystring';
 import {oneCategory, test} from '../../../../interfaces/page.interface';
 import {testAPI, testsAPI} from '../../../../api/api';
-import { withLayout} from '../../../../layout/Layout';
+import {withLayout} from '../../../../layout/Layout';
 import styles from "./test.module.css";
 import GeneralInfo from "../../../../components/TestPage/GeneralInfo/GeneralInfo";
 import Card from "../../../../components/TestPage/Card/Card";
 import TabsData from "../../../../components/TestPage/Tabs/TabsData";
 import CardProduct from "../../../../components/Card/CardProduct/CardProduct";
+import {translit} from "../../../../helpers/helpers";
 
-function Test({ test }: pageProps): JSX.Element {
+function Test({test}: pageProps): JSX.Element {
 
     return (
         <div className={styles.testPage}>
@@ -45,40 +46,43 @@ export default withLayout(Test);
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-   const tests: oneCategory[] = await testsAPI.getTests();
+    const tests: oneCategory[] = await testsAPI.getTests();
 
-    const paths:any = [];
+    const paths: string[] = [];
 
-    tests.forEach(function(item: oneCategory) {
-        const a:any = `/categories/${item['category_path']}/`;
+    tests.forEach(function (item: oneCategory) {
+
+        const baseUrl: any = `/categories/${item['category_path']}/`;
 
         for (const key in item) {
             if (key === 'tests') {
-                item['tests'].forEach(function(item) {
-                    const b:string = item.article;
-                    paths.push(a + b);
+                item['tests'].forEach(function (item) {
+                    paths.push(baseUrl + translit(item.name) + '&article=' + item.article);
                 });
             }
         }
     });
 
-   return {
+    return {
         paths,
         fallback: false
     };
 };
 
-export const getStaticProps: GetStaticProps<pageProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
+export const getStaticProps: GetStaticProps<pageProps> = async ({params}: GetStaticPropsContext<ParsedUrlQuery>) => {
     if (!params) {
         return {
             notFound: true
         };
     }
 
-    const { article } = params as IParams;
+    const {article} = params as IParams;
 
-    const tests: oneCategory[]  = await testsAPI.getTests();
-    const test: test = await testAPI.getTest(article);
+    const indexEquals: number = article.indexOf('=', 0);
+    const sliceArticle: string = article.slice(indexEquals + 1);
+    const test: test = await testAPI.getTest(sliceArticle);
+
+    //const tests: oneCategory[] = await testsAPI.getTests();
     const data: oneCategory[] = await testsAPI.getTests();
 
     return {
