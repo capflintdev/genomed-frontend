@@ -5,13 +5,13 @@ import fbIcon from './fb.png';
 import instaIcon from './insta.png';
 import vkIcon from './vk.png';
 import jjIcon from './jj.png';
+import Container from "../../components/Container/Container";
 
 
 export const Footer = ({...props}: FooterProps): JSX.Element => {
     return (
-        <div {...props}>
             <footer className={styles.footer}>
-                <div className={"container"}>
+                 <Container>
                     <div className={styles.footerColumnAll}>
                         <div className={styles.footerColumn}>
                             <ul className={styles.footermenu}>
@@ -93,8 +93,7 @@ export const Footer = ({...props}: FooterProps): JSX.Element => {
                         </div>
                     </div>
                     <div className={styles.copyright}>© {new Date().getFullYear()} Геномед. Все права защищены</div>
-                </div>
+                 </Container>
             </footer>
-        </div>
     );
 };

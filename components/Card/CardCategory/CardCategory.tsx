@@ -6,7 +6,7 @@ import {cardCategoryProps} from "./CardCategory.props";
 
 const CardCategory = ({title, link, description}: cardCategoryProps) => {
     return (
-        <div className={styles.card}>
+        <div className={cn(styles.card, styles.cardCategory)}>
             <div className={cn(styles.tag,stylesCategory.tag)}>Раздел</div>
             <div className={stylesCategory.content}>
                 <div>

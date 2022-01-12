@@ -1,17 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import CardProduct from "../../Card/CardProduct/CardProduct";
 import {oneCategory} from "../../../interfaces/page.interface";
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import SwiperCore, {
-    Pagination
-} from 'swiper';
 import styles from "./Slider.module.css";
 import Container from "../../Container/Container";
+import useWindowDimensions from "../../../helpers/useWindowDimensions";
+import SwiperCore, {
+    Navigation, Pagination
+} from 'swiper';
 
-SwiperCore.use([Pagination]);
 
 const Slider = ({data}: sliderProps) => {
 
@@ -41,16 +41,32 @@ const Slider = ({data}: sliderProps) => {
 
     }, [data]);
 
+    const {width} = useWindowDimensions();
+    const countSlider = width && width > 1430 ? 2 : 1 ;
+
+    // install Swiper modules
+    SwiperCore.use([Navigation]);
+    SwiperCore.use([Pagination]);
+
+
+    const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
+    const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
+
     return (
         <section className={styles.slider}>
-            <Container>
+
                     <div className={cn(styles.slider )}>
                         <Swiper
                             spaceBetween={40}
-                            slidesPerView={2}
-                            slidesPerGroup={2}
+                            slidesPerView={countSlider}
+                            //slidesPerGroup={2}
+                            className={styles.mySwiper}
+                            navigation={{ prevEl, nextEl }}
                             pagination={true}
+                            loop={true}
+
                         >
+                            <div ref={(node) => setPrevEl(node)} className={styles.arrowPrev}></div>
                             {
                                 slides.map((item, index) => {
                                     return (
@@ -60,15 +76,18 @@ const Slider = ({data}: sliderProps) => {
                                                     size={'m'}
                                                     test={item}
                                                     category={item.category_path}
+                                                    className={'slide'}
                                                 />
                                             </div>
                                         </SwiperSlide>
                                     );
                                 })
                             }
+
+                            <div ref={(node) => setNextEl(node)} className={styles.arrowNext}></div>
                         </Swiper>
                     </div>
-            </Container>
+
         </section>
     );
 };

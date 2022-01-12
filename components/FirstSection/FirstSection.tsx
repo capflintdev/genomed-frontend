@@ -1,6 +1,6 @@
 import styles from "./FirstSection.module.css";
 import Image from "next/image";
-import mainPageImage from './first-section.webp';
+import mainPageImage from './22.webp';
 import Container from "../Container/Container";
 
 const FirstSection = ({titleH1, subtitle1, subtitle2}: FirstSectionProps) => {
@@ -17,11 +17,11 @@ const FirstSection = ({titleH1, subtitle1, subtitle2}: FirstSectionProps) => {
                     </div>
                     <div className={styles.firstScreenImage}>
                         <div className={styles.imageWrap}>
-                            <div className={styles.frame}/>
+
                             <Image
                                 src={mainPageImage}
-                                width={680}
-                                height={500}
+                                width={732}
+                                height={515}
                                 quality={100}
                                 priority={true}
                                 alt="главный баннер"

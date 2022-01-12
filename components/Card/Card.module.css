@@ -12,6 +12,9 @@
 	background: #F0F4F7;
 }
 
+.slide {
+	height: 300px;
+}
 
 .card:hover {
 	transition: all 0.5s ease-out;
@@ -65,4 +68,23 @@
 	transition: all 0.3s;
 
 	color: var(--blue);
+}
+
+
+@media (max-width: 768px) {
+	.slide {
+		height: auto;
+	}
+	.slide .title {
+		font-size: 20px;
+	}
+}
+
+@media (max-width: 575px) {
+	.slide .shortDesc {
+		display: none;
+	}
+	.cardCategory {
+		height: auto;
+	}
 }

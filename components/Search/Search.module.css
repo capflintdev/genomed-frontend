@@ -72,7 +72,7 @@
 .iconSearch {
 	position: absolute;
 	right: 15px;
-	top: 15px;
+	top: 28%;
 }
 
 .searchLink:hover {
@@ -88,4 +88,27 @@
 	font-weight: 500;
 }
 
+@media (max-width: 1200px) {
+	.searchLink {
+		font-size: 14px;
+	}
+	.price {
+		flex: 0 0 60px;
+	}
+}
+
+@media (max-width: 992px) {
+	.input {
+		height: 40px;
+	}
+}
+
+@media (max-width: 575px) {
+	.input {
+		border:none;
+		border-bottom: 2px solid #E5E5E5;
+		border-radius: 0;
+		background-color: #f9fafb;
+	}
+}
 

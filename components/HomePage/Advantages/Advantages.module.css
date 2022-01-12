@@ -48,3 +48,31 @@
 	font-weight: 500;
 	line-height: 150%;
 }
+
+
+@media (max-width: 992px) {
+	.advantagesWrap {
+		flex-wrap: wrap;
+		flex-direction: column;
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.advantageItem:not(:last-child) {
+		margin-bottom: 30px;
+	}
+}
+
+@media (max-width: 575px) {
+	.advantages h2 {
+		font-size: 24px;
+		line-height: 30px;
+	}
+	.advantageTitle {
+		font-size: 18px;
+	}
+	.advantageDesc {
+		font-size: 16px;
+	}
+}

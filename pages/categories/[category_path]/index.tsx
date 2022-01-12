@@ -55,7 +55,7 @@ function Category({ tests, category, category_path ,data }: pageProps): JSX.Elem
                                     </div>
                                 )
                             }
-                            <div className={styles.loadMore}><Button appearance={'white'}>Смотреть еще</Button></div>
+                           {/* <div className={styles.loadMore}><Button appearance={'white'}>Смотреть еще</Button></div>*/}
                         </div>
                     </div>
                 </div>

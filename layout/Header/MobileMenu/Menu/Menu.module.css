@@ -1,0 +1,52 @@
+.menuWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9fafb;
+    height: 100vh;
+    text-align: center;
+    padding: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform:  translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    z-index: 1;
+}
+
+.menuWrap li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.menuWrap.open {
+    transform: translateX(0) ;
+}
+
+.arrow  {
+    position: relative;
+}
+
+.arrow:after  {
+    content: url("../../arrow.svg");
+    transform: rotate(-90deg);
+    display: inline-block;
+    right: -20px;
+    position: absolute;
+}
+
+.prev {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 575px) {
+    .menuWrap.open {
+        padding-top: 100px;
+    }
+}

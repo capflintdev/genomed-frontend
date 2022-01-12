@@ -1,0 +1,27 @@
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.4);
+    position: fixed;
+    z-index: 100;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.overlay.show {
+   display: block;
+}
+
+.popup {
+    width: 400px;
+    height: 200px;
+    background: #E5E5E5;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}

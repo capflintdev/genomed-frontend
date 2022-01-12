@@ -9,4 +9,4 @@ const Container: React.FC = ({children}) => {
     );
 };
 
-export default Container
+export default Container;
