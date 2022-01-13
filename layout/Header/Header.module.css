@@ -149,6 +149,7 @@
 
 .hoverLink {
     position: relative;
+    cursor: pointer;
 }
 
 .submenu {
@@ -186,7 +187,7 @@
     line-height: 19px;
 }
 
-.tablinks a:hover, .tabContent a:hover {
+.tablinks a:hover, .tabContent a:hover, .headerMenuContent a:hover{
     color: var(--primary);
 }
 

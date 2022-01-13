@@ -22,12 +22,17 @@
     margin-bottom: 20px;
 }
 
+.menuWrap li a:hover , .arrow:hover {
+    color: var(--primary);
+}
+
 .menuWrap.open {
     transform: translateX(0) ;
 }
 
 .arrow  {
     position: relative;
+    cursor: pointer;
 }
 
 .arrow:after  {
@@ -43,6 +48,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 @media (max-width: 575px) {

@@ -2,9 +2,9 @@ import styles from './Burger.module.css';
 import cn from 'classnames';
 
 
-const Burger = ({open, setOpen}: BurgerProps) => {
+const Burger = ({open, setOpen, zIndex = 10}: BurgerProps) => {
     return (
-        <div onClick={() => setOpen(!open)} className={styles.styledBurger}>
+        <div onClick={() => setOpen(!open)} className={styles.styledBurger} style={{zIndex: zIndex}}>
             <div className={cn(styles.burgerLine,{
                 [styles.open]: open,
             })}/>
@@ -22,5 +22,6 @@ export default Burger;
 
 interface BurgerProps {
     open: boolean,
-    setOpen: (open: boolean) => void
+    setOpen: (open: boolean) => void,
+    zIndex? : number
 }

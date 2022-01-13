@@ -16,25 +16,22 @@ export const Footer = ({...props}: FooterProps): JSX.Element => {
                         <div className={styles.footerColumn}>
                             <ul className={styles.footermenu}>
                                 <li>
-                                    <a href="#" target="_blank" rel="noreferrer">Личный кабинет врача</a>
+                                    <a href="http://doc.genomed.ru/" target="_blank" rel="noreferrer">Личный кабинет врача</a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" rel="noreferrer">Новости</a>
+                                    <a href="https://genomed.ru/news/" target="_blank" rel="noreferrer">Новости</a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" rel="noreferrer">Наши партнеры</a>
+                                    <a href="https://genomed.ru/partneryi-i-sotrudnichestvo/" target="_blank" rel="noreferrer">Наши партнеры</a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" rel="noreferrer">График приема граждан</a>
+                                    <a href="https://genomed.ru/grafik-priema-grazhdan/" target="_blank" rel="noreferrer">График приема граждан</a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" rel="noreferrer">Вебинары</a>
+                                    <a href="https://genomed.ru/news/" target="_blank" rel="noreferrer">Отзывы</a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" rel="noreferrer">Отзывы</a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank" rel="noreferrer">Правила предоставления<br/> медицинских
+                                    <a href="https://genomed.ru/docs/postanovlenie-1006.pdf" target="_blank" rel="noreferrer">Правила предоставления<br/> медицинских
                                         услуг</a>
                                 </li>
                             </ul>
@@ -42,22 +39,22 @@ export const Footer = ({...props}: FooterProps): JSX.Element => {
                         <div className={styles.footerColumn}>
                             <ul>
                                 <li>
-                                    <a href="#" target="_blank" rel="noreferrer">Квитанция на оплату</a>
+                                    <a href="docs/kvitanciya-2016-iyul.docx" target="_blank" rel="noreferrer">Квитанция на оплату</a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" rel="noreferrer">Вышестоящие организации</a>
+                                    <a href="https://genomed.ru/docs/vyshestoyashchie-organizacii-2.pdf" target="_blank" rel="noreferrer">Вышестоящие организации</a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" rel="noreferrer">Информация для партнеров</a>
+                                    <a href="https://genomed.ru/informacziya-dlya-partnerov/" target="_blank" rel="noreferrer">Информация для партнеров</a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" rel="noreferrer">Политика конфиденциальности</a>
+                                    <a href="https://genomed.ru/assets/download/privacy_policy_genomed.pdf" target="_blank" rel="noreferrer">Политика конфиденциальности</a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" rel="noreferrer">Контакты</a>
+                                    <a href="https://genomed.ru/contacts/" target="_blank" rel="noreferrer">Контакты</a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" rel="noreferrer">Лицензия</a>
+                                    <a href="https://genomed.ru/license" target="_blank" rel="noreferrer">Лицензия</a>
                                 </li>
                             </ul>
                         </div>
@@ -68,7 +65,11 @@ export const Footer = ({...props}: FooterProps): JSX.Element => {
                             <p>Вс.: 8.00 – 15.00</p>
                         </div>
                         <div className={`${styles.footerColumn} ${styles.footerContacts}`}>
-                            <p className={styles.footerPhone}>+7 (800) 333-45-38</p>
+                            <p className={styles.footerPhone}>
+                                <a href="tel:88003334538">
+                                    +7 (800) 333-45-38
+                                </a>
+                            </p>
                             <p className={styles.footerAddressTitle}>
                                 Центральный офис МГЦ “Геномед”:
                             </p>
@@ -85,9 +86,6 @@ export const Footer = ({...props}: FooterProps): JSX.Element => {
                                 </a>
                                 <a href="https://www.instagram.com/genomed.ru/" target="_blank" rel="noreferrer">
                                     <Image src={instaIcon}  quality={100} width={25} height={25} alt={'инстаграмм'}/>
-                                </a>
-                                <a href="#" target="_blank" rel="noreferrer">
-                                    <Image src={jjIcon}  quality={100} width={25} height={25} alt={'jj'}/>
                                 </a>
                             </div>
                         </div>

@@ -127,9 +127,8 @@ export const Header = (): JSX.Element => {
                             </div>
                             <div className={styles.call} onClick={() => showPopupCall(true)}>
                                 <Button appearance={'primary'}>Позвоните мне</Button>
-                                <PopupCall popupCall={popupCall} showPopupCall={showPopupCall}/>
                             </div>
-
+                            <PopupCall popupCall={popupCall} showPopupCall={showPopupCall}/>
                             {
                                 width && width > 992 ?
                                     null

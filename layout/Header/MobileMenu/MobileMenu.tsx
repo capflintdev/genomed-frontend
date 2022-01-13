@@ -14,7 +14,7 @@ const MobileMenu = ({data}: mobileMenuProps) => {
 
     return (
         <div ref={menu}>
-            <Burger open={open} setOpen={setOpen}/>
+            <Burger open={open} setOpen={setOpen} zIndex={10}/>
             <Menu open={open} data={data}/>
         </div>
     );
