@@ -11,7 +11,7 @@ import TabsData from "../../../../components/TestPage/Tabs/TabsData";
 import CardProduct from "../../../../components/Card/CardProduct/CardProduct";
 import {translit} from "../../../../helpers/helpers";
 
-function Test({test}: pageProps): JSX.Element {
+function Test({test, relatedTestsData}: pageProps): JSX.Element {
 
     return (
         <div className={styles.testPage}>
@@ -33,8 +33,15 @@ function Test({test}: pageProps): JSX.Element {
                 <section className={styles.relatedTests}>
                     <h2>С этим исследованием также назначают</h2>
                     <div className={styles.relatedTestsWrap}>
-                        <div className={styles.relatedTestsItem}><CardProduct size={'m'}/></div>
-                        <div className={styles.relatedTestsItem}><CardProduct size={'m'}/></div>
+                        {
+                            relatedTestsData && relatedTestsData.map((test, index) => {
+                               return (
+                                   <div className={styles.relatedTestsItem} key={index}>
+                                       <CardProduct size={'m'} test={test} category={test['category_path']}/>
+                                   </div>
+                               );
+                            })
+                        }
                     </div>
                 </section>
             </div>
@@ -85,11 +92,31 @@ export const getStaticProps: GetStaticProps<pageProps> = async ({params}: GetSta
     //const tests: oneCategory[] = await testsAPI.getTests();
     const data: oneCategory[] = await testsAPI.getTests();
 
+    const relatedTestsId: string[] = test.related_tests.split(',').map(item => {
+        return item.trim();
+    });
+
+    const relatedTestsData: test[] = [];
+
+    data.forEach(function (item: oneCategory) {
+        for (const key in item) {
+            if (key === 'tests') {
+                item['tests'].forEach(function (test: test) {
+                    if (relatedTestsId.includes(test['price_id'])) {
+                        relatedTestsData.push({category_path: item.category_path, ...test});
+                    }
+                });
+            }
+        }
+    });
+
+
     return {
         props: {
             test,
             article,
-            data
+            data,
+            relatedTestsData
         }
     };
 };
@@ -98,6 +125,7 @@ export const getStaticProps: GetStaticProps<pageProps> = async ({params}: GetSta
 interface pageProps extends Record<string, unknown> {
     test: test;
     data: oneCategory[];
+    relatedTestsData: test[]
 }
 
 interface IParams extends ParsedUrlQuery {

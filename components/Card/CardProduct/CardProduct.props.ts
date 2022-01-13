@@ -2,7 +2,7 @@ import {test} from "../../../interfaces/page.interface";
 
 export interface CardProductProps {
     size?: 'm' | 'l';
-    test?: test
+    test: test
     category?: string
     className?: string
 }

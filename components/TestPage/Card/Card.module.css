@@ -10,6 +10,8 @@
 
 	border-radius: 10px;
 	background: #F7F9FB;
+	position: sticky;
+	top: 0;
 }
 
 .id {

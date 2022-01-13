@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import CardProduct from "../../Card/CardProduct/CardProduct";
-import {oneCategory} from "../../../interfaces/page.interface";
+import {oneCategory, test} from "../../../interfaces/page.interface";
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -98,19 +98,7 @@ interface sliderProps {
     data: oneCategory[]
 }
 
-interface testWithPath {
+interface testWithPath extends test{
     category_path: string;
-    price_id: string;
-    article: string;
-    name: string;
-    shortinfo: string;
-    longinfo?: string;
-    details: string;
-    indications: string;
-    preparation: string;
-    methods: string;
-    howto: string;
-    results: string;
-    price: string;
 }
 
