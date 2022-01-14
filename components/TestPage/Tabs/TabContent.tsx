@@ -1,7 +1,7 @@
 import React from "react";
 
 const TabContent: React.FC<tabProps> = ({ children }) => {
-    return <div>{children}</div>;
+    return <>{children}</>;
 };
 
 export default TabContent;

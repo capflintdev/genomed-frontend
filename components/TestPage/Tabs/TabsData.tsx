@@ -1,10 +1,11 @@
 import Tabs from "./Tabs";
 import TabContent from "./TabContent";
-import {useCallback, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
+import {parseDataFunc} from "../../../helpers/helpers";
 
 const TabsData = ({details, indications, preparation, methods, howto, results}: TabsDataProps) => {
 
-    const [parseData, setParseData] = useState<ItabsData>({
+    const [parseData, setParseData] = useState<Record<string, any>>({
         "Подробнее об исследовании": details,
         "Показания": indications,
         "Подготовка": preparation,
@@ -13,37 +14,26 @@ const TabsData = ({details, indications, preparation, methods, howto, results}: 
         "Интерпретация результатов": results,
     });
 
-    // ф-я принимает строку, делит на подстроки,
-    // заменяет символы \r\n\r\n на тег <p>, возвращает отформатированные параграфы
-
-    const parseDataFunc = useCallback((str: string) => {
-        const parts: string[] = str.split(/\r\n\r\n/g);
-        const result: JSX.Element[] = [];
-        parts.forEach((item: string, index: number) => {
-            result.push(<p key={index}>{item}</p>);
-        });
-        return <p>{result}</p>;
-    }, []);
-
-// доделать убрать any
     useEffect(() => {
-        setParseData( ({...parseData}:any) => {
-            for (const key in parseData) {
-                parseData[key] = parseDataFunc(parseData[key as keyof ItabsData]);
+        setParseData(
+            (prevState: Record<string, string>): Record<string, JSX.Element> => {
+                const obj: Record<string, JSX.Element> = {};
+                for (const key in prevState) {
+                    obj[key] = parseDataFunc(prevState[key]);
+                }
+                return obj;
             }
-            return parseData;
-        } );
-    }, [parseDataFunc]);
-
+        );
+    }, []);
 
     return (
         <Tabs>
             {
-                 Object.keys(parseData).map((item, index) => {
+                Object.keys(parseData).map((item, index) => {
                     return (
                         <TabContent title={item} key={index}>
                             {
-                                parseData[item as keyof ItabsData]
+                                parseData[item]
                             }
                         </TabContent>
                     );
@@ -62,13 +52,4 @@ interface TabsDataProps {
     methods: string;
     howto: string;
     results: string;
-}
-
-interface ItabsData {
-    "Подробнее об исследовании": string,
-    "Показания": string,
-    "Подготовка": string,
-    "Методика исследования": string,
-    "Как сдать тест": string,
-    "Интерпретация результатов": string,
 }

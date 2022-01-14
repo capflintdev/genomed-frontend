@@ -29,7 +29,6 @@
 
 .firstScreenWrap {
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: space-between;
 }
 
@@ -49,8 +48,9 @@
 
 .firstScreenImage {
 	display: flex;
-	flex: 0 0 680px;
+	flex: 0 1 680px;
 	justify-content: flex-end;
+	align-items: center;
 }
 
 .firstScreenText h1 {
@@ -65,19 +65,64 @@
 	position: relative;
 }
 
-.frame::before {
-	position: absolute;
-	top: 23px;
-	left: -16px;
-
-	content: url("./line.svg");
+.openSidebar {
+	display: none;
 }
 
-.frame::after {
-	position: absolute;
-	z-index: 100;
-	top: 75px;
-	left: 0;
+@media (max-width: 1200px) {
+	.firstScreenImage {
+		display: none;
+	}
+	.firstScreenText {
+		flex: 0 0 100%;
+	}
+	.firstScreenDesc {
+		max-width: 100%;
+	}
+	.firstScreen {
+		margin-bottom: 50px;
+	}
 
-	content: url("./circles.svg");
+	.sidebar {
+		display: none;
+	}
+	.showMobileSidebar.sidebar {
+		display: block;
+		width: 100%;
+	}
+
+	.testsHide {
+		display: none;
+	}
+
+	.tests {
+		flex: 1 1 100%;
+	}
+
+	.openSidebar {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+	.openSidebar span{
+		font-weight: 500;
+		display: inline-block;
+		margin-left: 15px;
+		cursor: pointer;
+	}
+
+	.sidebar {
+		margin-right: 0;
+	}
+
+}
+
+@media (max-width: 576px) {
+	.firstScreenText h1 {
+		font-size: 24px;
+		line-height: 30px;
+	}
+	.firstScreenDesc {
+		font-size: 16px;
+	}
 }

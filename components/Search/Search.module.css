@@ -36,7 +36,6 @@
 	box-sizing: border-box;
 	width: 100%;
 	padding: 0 0 20px 0;
-	width: 100%;
 
 	text-align: left;
 	font-feature-settings: 'pnum' on, 'lnum' on;
@@ -44,13 +43,12 @@
 }
 
 
-
 .input {
 	box-sizing: border-box;
 	width: 100%;
-	height: 45px;
+	height: 50px;
 
-	padding: 5px 5px 5px 20px;
+	padding: 7px 5px 5px 20px;
 
 	border: 2px solid #E5E5E5;
 	border-radius: 10px;
@@ -64,6 +62,7 @@
 	font-family: 'Raleway', sans-serif;
 	color: #D4D8DB;
 	font-weight: 500;
+	font-size: 14px;
 }
 
 .searchBar {
@@ -73,7 +72,7 @@
 .iconSearch {
 	position: absolute;
 	right: 15px;
-	top: 12px;
+	top: 28%;
 }
 
 .searchLink:hover {
@@ -89,4 +88,27 @@
 	font-weight: 500;
 }
 
+@media (max-width: 1200px) {
+	.searchLink {
+		font-size: 14px;
+	}
+	.price {
+		flex: 0 0 60px;
+	}
+}
+
+@media (max-width: 992px) {
+	.input {
+		height: 40px;
+	}
+}
+
+@media (max-width: 575px) {
+	.input {
+		border:none;
+		border-bottom: 2px solid #E5E5E5;
+		border-radius: 0;
+		background-color: #f9fafb;
+	}
+}
 

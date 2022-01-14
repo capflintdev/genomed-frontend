@@ -4,6 +4,7 @@ import HumanIcon from './icon2.png';
 import AnalysisIcon from './icon3.png';
 import Image from "next/image";
 import {block2} from "../../../interfaces/wp.interface";
+import Container from "../../Container/Container";
 
 
 const Advantages = ({...advantages}: block2[]) => {
@@ -12,7 +13,7 @@ const Advantages = ({...advantages}: block2[]) => {
 
     return (
         <section className={styles.advantages}>
-            <div className={"container"}>
+            <Container>
                 <h2>
                     Геномед - лаборатория персонализированной медицины
                 </h2>
@@ -33,7 +34,7 @@ const Advantages = ({...advantages}: block2[]) => {
                         })
                     }
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

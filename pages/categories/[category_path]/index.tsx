@@ -1,22 +1,26 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
-import React from 'react';
+import React, {useState} from 'react';
 import { ParsedUrlQuery } from 'querystring';
 import {oneCategory, test} from '../../../interfaces/page.interface';
 import {categoryAPI, testsAPI} from '../../../api/api';
 import {withLayout} from '../../../layout/Layout';
 import styles from "./category.module.css";
 import Image from "next/image";
-import mainPageImage from "./category-photo.png";
+import mainPageImage from "./category-photo.webp";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import CardProduct from "../../../components/Card/CardProduct/CardProduct";
-import {Button} from "../../../components/Button/Button";
+import Container from "../../../components/Container/Container";
+import Burger from "../../../layout/Header/MobileMenu/Burger/Burger";
+import cn from 'classnames';
 
 function Category({ tests, category, category_path ,data }: pageProps): JSX.Element {
+
+    const [open, setOpen] = useState<boolean>(false);
 
     return (
             <div className={styles.categoryPage}>
                 <section className={styles.firstScreen}>
-                    <div className={"container"}>
+                    <Container>
                         <div className={styles.firstScreenWrap}>
                             <div className={styles.firstScreenText}>
                                 <h1>{category.category}</h1>
@@ -28,37 +32,44 @@ function Category({ tests, category, category_path ,data }: pageProps): JSX.Elem
                             </div>
                             <div className={styles.firstScreenImage}>
                                 <div className={styles.imageWrap}>
-                                    <div className={styles.frame}></div>
                                     <Image
                                         src={mainPageImage}
                                         width={680}
                                         height={500}
                                         quality={100}
-                                        priority
+                                        priority={true}
                                         alt="главный баннер"
                                     />
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Container>
                 </section>
-                <div className={"container"}>
+                <Container>
+                    <div className={styles.openSidebar}>
+                        <Burger open={open} setOpen={setOpen} zIndex={0}/>
+                        <span onClick={() => setOpen(!open)}>Все категории</span>
+                    </div>
                     <div className={styles.categoryWrap}>
-                        <div className={styles.sidebar}>
-                            <Sidebar data={data}/>
+                        <div className={cn(styles.sidebar, {
+                            [styles.showMobileSidebar]: open,
+                        })}>
+                            <Sidebar data={data} setOpen={setOpen}/>
                         </div>
-                        <div className={styles.tests}>
+                        <div className={cn(styles.tests, {
+                            [styles.testsHide]: open
+                        })}>
                             {
                                 tests && tests.map(
-                                    (t) =>  <div className={styles.testsItem}>
-                                        <CardProduct size={'l'} test={t} category={category_path}/>
+                                    (test:test, index: number) =>
+                                        <div className={styles.testsItem} key={index}>
+                                        <CardProduct size={'l'} test={test} category={category_path}/>
                                     </div>
                                 )
                             }
-                            <div className={styles.loadMore}><Button appearance={'white'}>Смотреть еще</Button></div>
                         </div>
                     </div>
-                </div>
+                </Container>
             </div>
 
     );

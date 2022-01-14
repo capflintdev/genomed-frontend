@@ -18,7 +18,7 @@
 }
 
 .tabTitleActive {
-	padding-bottom: 18px;
+	padding-bottom: 17px;
 
 	color: var(--primary);
 	border-bottom: 1px solid var(--primary);

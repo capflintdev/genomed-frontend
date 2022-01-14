@@ -23,5 +23,24 @@
 }
 
 .analyzesItem {
-	max-width: 680px;
+	max-width: 100%;
+	flex: 0 1 calc(50% - 20px);
+}
+
+.analyzesItem:nth-child(odd) {
+	margin-right: 40px;
+}
+
+
+@media(max-width: 1200px) {
+	.analyzesItem {
+		max-width: 100%;
+		flex: 0 0 100%;
+	}
+	.analyzesItem:nth-child(odd) {
+		margin: 0 0 20px 0;
+	}
+	.analyzesItem {
+		margin-bottom: 20px;
+	}
 }

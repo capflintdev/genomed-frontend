@@ -1,11 +1,12 @@
 import styles from "./FirstSection.module.css";
 import Image from "next/image";
-import mainPageImage from './first-section.png';
+import mainPageImage from './22.webp';
+import Container from "../Container/Container";
 
 const FirstSection = ({titleH1, subtitle1, subtitle2}: FirstSectionProps) => {
     return (
         <section className={styles.firstScreen}>
-            <div className={"container"}>
+            <Container>
                 <div className={styles.firstScreenWrap}>
                     <div className={styles.firstScreenText}>
                         <h1>{titleH1 || 'Заголовок'}</h1>
@@ -16,19 +17,19 @@ const FirstSection = ({titleH1, subtitle1, subtitle2}: FirstSectionProps) => {
                     </div>
                     <div className={styles.firstScreenImage}>
                         <div className={styles.imageWrap}>
-                            <div className={styles.frame}/>
+
                             <Image
                                 src={mainPageImage}
-                                width={680}
-                                height={500}
+                                width={732}
+                                height={515}
                                 quality={100}
-                                priority
+                                priority={true}
                                 alt="главный баннер"
                             />
                         </div>
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

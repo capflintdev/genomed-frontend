@@ -54,3 +54,21 @@
 .buyBtn:hover {
 	background: var(--blue);
 }
+
+@media (max-width: 768px) {
+	.cardLarge .content {
+		grid-template-columns: 1fr;
+	}
+}
+
+
+@media (max-width: 575px) {
+	.cardSlider .content{
+		grid-template-columns: 1fr;
+	}
+	.cardSlider .price {
+		font-size: 30px;
+	}
+}
+
+
