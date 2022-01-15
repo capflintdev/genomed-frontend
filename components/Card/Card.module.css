@@ -3,7 +3,7 @@
 	flex-direction: column;
 
 	width: 100%;
-	height: 280px;
+	height: 300px;
 	padding: 25px 35px;
 
 	transition: all 0.5s ease-out;
@@ -15,6 +15,8 @@
 .slide {
 	height: 300px;
 }
+
+
 
 .card:hover {
 	transition: all 0.5s ease-out;
@@ -70,6 +72,17 @@
 	color: var(--blue);
 }
 
+@media (max-width: 1350px) {
+	.relatedTest {
+		height: 350px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.relatedTest {
+		height: auto;
+	}
+}
 
 @media (max-width: 768px) {
 	.slide {

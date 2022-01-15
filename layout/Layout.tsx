@@ -13,7 +13,13 @@ export const Layout = ({children, title = 'Геномед', ...props}: LayoutPro
     return (
         <>
             <Head>
-                <title>{props.test?.name ? props.test.name : title  }</title>
+                <title>
+                    {
+                        props.test ? props.test.name
+                            : props.category ? props.category.category
+                            : title
+                    }
+                </title>
                 <link rel="icon" href="/favicon.ico"/>
                 <meta name="og:title" content={title}/>
                 <meta property="og:site_name" content="Геномед - лаборатория молекулярной патологии"/>
@@ -36,7 +42,7 @@ export const Layout = ({children, title = 'Геномед', ...props}: LayoutPro
 export const withLayout = <T extends Record<string, unknown> & IAppContext>(Component: FunctionComponent<T>) => {
     return function withLayoutComponent(props: T): JSX.Element {
         return (
-            <AppContextProvider data={props.data} >
+            <AppContextProvider data={props.data}>
                 <Layout {...props} >
                     <Component {...props} />
                 </Layout>

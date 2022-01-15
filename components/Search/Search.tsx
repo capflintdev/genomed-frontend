@@ -1,7 +1,7 @@
 import {ChangeEvent, useRef, useState} from "react";
 import styles from './Search.module.css';
 import Link from "next/link";
-import {oneCategory} from "../../interfaces/page.interface";
+import {oneCategory, test} from "../../interfaces/page.interface";
 import SearchIcon from './search.svg';
 import Image from "next/image";
 import cn from 'classnames';
@@ -12,20 +12,8 @@ interface autoCompleteProps {
     data: oneCategory[];
 }
 
-interface testWithPath {
+interface testWithPath extends test{
     category_path: string;
-    price_id: string;
-    article: string;
-    name: string;
-    shortinfo: string;
-    longinfo?: string;
-    details: string;
-    indications: string;
-    preparation: string;
-    methods: string;
-    howto: string;
-    results: string;
-    price: string;
 }
 
 interface ISuggestions {
@@ -96,7 +84,6 @@ const AutoComplete = ({data}: autoCompleteProps) => {
                     placeholder={"Поиск по сайту"}
                     className={styles.input}
                     autoComplete="off"
-                    //onBlur={() => setIsComponentVisible(false)}
                 />
                 <div className={styles.iconSearch}>
                     <Image src={SearchIcon}/>
@@ -106,7 +93,7 @@ const AutoComplete = ({data}: autoCompleteProps) => {
                 <div className={styles.autoCompleteContainer}>
                     {suggestions.map((item: testWithPath) => (
                         <div className={styles.autoCompleteItem} key={item.article}>
-                            <Link href={`/categories/${item.category_path}/${translit(item.name)}&article=${item.article}`}>
+                            <Link href={`/${item.category_path}/${translit(item.name)}&article=${item.article}`}>
                                 <a className={styles.searchLink} onClick={() => suggestionSelected()}>
                                     <div>{item.name}</div>
                                     <div className={styles.price}>{priceRu(item.price)}</div>

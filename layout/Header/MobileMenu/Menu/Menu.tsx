@@ -8,25 +8,25 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-const Menu = ({open, data} : MenuProps) => {
+const Menu = ({open, data, showPopupCall}: MenuProps) => {
 
 
     const [menuCategories, showMenuCategories] = useState(false);
 
     return (
         <div className={cn(styles.menuWrap, {
-            [styles.open] : open
+            [styles.open]: open
         })}>
             <nav>
                 <div
-                    style={{display: menuCategories? 'block' : 'none'}}
+                    style={{display: menuCategories ? 'block' : 'none'}}
                     className={styles.prev}
                     onClick={() => showMenuCategories(false)}
                 >
                     <Image src={ArrowPrev}/>
                 </div>
-                <div style={{display: menuCategories? 'none' : 'block'}}>
-                    <ul className={styles.menu} >
+                <div style={{display: menuCategories ? 'none' : 'block'}}>
+                    <ul className={styles.menu}>
                         <li onClick={() => showMenuCategories(true)}>
                             <span className={styles.arrow}>Анализы и цены</span>
                         </li>
@@ -36,20 +36,28 @@ const Menu = ({open, data} : MenuProps) => {
                         <li><a href={"https://genomed.ru/journal"}>Журнал</a></li>
                         <li><a href={"https://genomed.ru/about"}>О компании</a></li>
                     </ul>
-                    <Button appearance={'white'} href={"https://genomed.ru/laboratoriya/status-testa"} className={'mobileBtnResult'}>
+                    <Button appearance={'white'} href={"https://genomed.ru/laboratoriya/status-testa"}
+                            className={'mobileBtnResult'}>
                         Узнать результаты
                     </Button>
-                    <Button appearance={'primary'} className={'mobileBtnCall'}>Позвоните мне</Button>
+                    <div onClick={() => showPopupCall(true)}>
+                        <Button
+                            appearance={'primary'}
+                            className={'mobileBtnCall'}
+                        >
+                            Позвоните мне
+                        </Button>
+                    </div>
                 </div>
-                <ul className={styles.menuCategories} style={{display: menuCategories? 'block' : 'none'}}>
+                <ul className={styles.menuCategories} style={{display: menuCategories ? 'block' : 'none'}}>
                     {
                         data.map((menuItem: oneCategory, index: number) => {
                             return (
                                 <li key={index}>
-                                <Link href={`/categories/${menuItem.category_path}`}>
-                                    <a>{menuItem.category}
-                                    </a>
-                                </Link>
+                                    <Link href={`/categories/${menuItem.category_path}`}>
+                                        <a>{menuItem.category}
+                                        </a>
+                                    </Link>
                                 </li>
                             );
                         })
@@ -65,4 +73,5 @@ export default Menu;
 interface MenuProps {
     open: boolean,
     data: oneCategory[];
+    showPopupCall: (popupCall: boolean) => void,
 }

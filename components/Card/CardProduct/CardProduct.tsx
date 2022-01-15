@@ -12,6 +12,8 @@ const CardProduct = ({size, test, category, className} : CardProductProps) => {
             [stylesCard.cardMedium]: size == 'm',
             [stylesCard.cardLarge]: size == 'l',
             [stylesCard.cardSlider]: className == 'slide',
+            [styles.relatedTest]: className == 'relatedTest',
+            [stylesCard.relatedTest]: className == 'relatedTest',
         })}>
             <div className={cn(styles.tag, stylesCard.tag)}>Исследование</div>
             <div className={stylesCard.content}>
@@ -31,7 +33,7 @@ const CardProduct = ({size, test, category, className} : CardProductProps) => {
                         </Link>
                     </div>
                     <div className={styles.moreBtn}>
-                        <Link href={`/categories/${category}/${translit(test.name)}&article=${test.article}`}>
+                        <Link href={`/${category}/${translit(test.name)}&article=${test.article}`}>
                             <a>Подробнее</a>
                         </Link>
                     </div>

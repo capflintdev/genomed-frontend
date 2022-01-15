@@ -1,16 +1,16 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import React, {useState} from 'react';
 import { ParsedUrlQuery } from 'querystring';
-import {oneCategory, test} from '../../../interfaces/page.interface';
-import {categoryAPI, testsAPI} from '../../../api/api';
-import {withLayout} from '../../../layout/Layout';
+import {oneCategory, test} from '../../interfaces/page.interface';
+import {categoryAPI, testsAPI} from '../../api/api';
+import {withLayout} from '../../layout/Layout';
 import styles from "./category.module.css";
 import Image from "next/image";
 import mainPageImage from "./category-photo.webp";
-import Sidebar from "../../../components/Sidebar/Sidebar";
-import CardProduct from "../../../components/Card/CardProduct/CardProduct";
-import Container from "../../../components/Container/Container";
-import Burger from "../../../layout/Header/MobileMenu/Burger/Burger";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import CardProduct from "../../components/Card/CardProduct/CardProduct";
+import Container from "../../components/Container/Container";
+import Burger from "../../layout/Header/MobileMenu/Burger/Burger";
 import cn from 'classnames';
 
 function Category({ tests, category, category_path ,data }: pageProps): JSX.Element {
@@ -80,8 +80,7 @@ export default  withLayout(Category);
 export const getStaticPaths: GetStaticPaths = async () => {
 
     const categoryAll: oneCategory[] = await testsAPI.getTests();
-    const paths: string[] = categoryAll.map((t:oneCategory) => '/categories/' + t['category_path']);
-
+    const paths: string[] = categoryAll.map((t:oneCategory) => '/' + t['category_path']);
 
     return {
         paths,
