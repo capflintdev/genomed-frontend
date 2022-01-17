@@ -1,0 +1,44 @@
+.generalInfo h1 {
+	margin-bottom: 50px;
+
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 42px;
+}
+
+.generalInfo h2 {
+	margin-bottom: 30px;
+
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 28px;
+}
+
+.mainText {
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 135%;
+}
+
+
+@media (max-width: 992px) {
+	.mainText {
+		margin-bottom: 40px;
+	}
+}
+
+@media (max-width: 576px) {
+	.generalInfo h1{
+		font-size: 24px;
+		line-height: 30px;
+		margin-bottom: 30px;
+	}
+	.generalInfo h2{
+		font-size: 20px;
+		line-height: 28px;
+		margin-bottom: 20px;
+	}
+	.mainText {
+		font-size: 16px;
+	}
+}

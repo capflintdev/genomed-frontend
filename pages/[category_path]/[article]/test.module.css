@@ -1,0 +1,78 @@
+.testPage {
+	padding-bottom: 60px;
+}
+
+.firstBlock {
+	display: grid;
+	grid-template-columns: auto 420px;
+	grid-column-gap: 160px;
+
+	margin-bottom: 90px;
+}
+
+.relatedTestsWrap {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 40px;
+}
+
+.relatedTests h2 {
+	margin-bottom: 60px;
+
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 28px;
+}
+
+.tabs {
+	margin-bottom: 75px;
+}
+
+@media (max-width: 1430px) {
+	.tabs {
+		display: grid;
+		grid-template-columns: 400px auto;
+		grid-column-gap: 40px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.firstBlock {
+		grid-template-columns: auto 350px;
+		grid-column-gap: 30px;
+	}
+	.tabs {
+		grid-template-columns: 300px auto;
+		grid-column-gap: 40px;
+	}
+	.relatedTestsWrap {
+		grid-template-columns: 1fr;
+	}
+	.relatedTestsItem {
+		margin-bottom: 30px;
+	}
+}
+
+@media (max-width: 992px) {
+	.firstBlock {
+		grid-template-columns: 1fr;
+		grid-column-gap: 0;
+	}
+}
+
+
+@media (max-width: 992px) {
+	.tabs {
+		grid-template-columns: 1fr;
+		grid-column-gap: 0;
+	}
+	.firstBlock {
+		margin-bottom: 50px;
+	}
+}
+
+@media (max-width: 576px) {
+	.testPage {
+		padding-bottom: 0px;
+	}
+}

@@ -1,0 +1,274 @@
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.wrapper {
+    margin-bottom: 40px;
+}
+
+.headerMain {
+    align-items: center;
+
+    justify-content: center;
+
+    grid-template-rows: 100px;
+    grid-template-areas: ". logo search learn call .";
+
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.headerMainContent {
+    display: grid;
+    align-items: flex-end;
+
+    justify-content: center;
+    grid-template-columns: 150px 1fr 194px 194px;
+    grid-template-rows: 100px;
+    grid-template-areas: " logo search learn call";
+
+    gap: 25px;
+}
+
+.logo {
+    grid-area: logo;
+
+    display: flex;
+    align-items: center;
+    max-width: 148px;
+}
+
+.search {
+    grid-area: search;
+}
+
+.learn {
+    grid-area: learn;
+}
+
+.call {
+    grid-area: call;
+}
+
+.headerLocation {
+    align-items: center;
+
+    justify-content: end;
+
+    background: var(--grey);
+
+    font-size: 16px;
+
+    /* display: grid; */
+
+    /* grid-template-columns: minmax(10px, 130px) auto 1fr auto auto minmax(10px, 130px); */
+    grid-template-rows: 1fr;
+    grid-template-areas: ". . city num1 num2 .";
+    gap: 15px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.headerLocationContent {
+    display: grid;
+    align-items: center;
+
+    justify-content: end;
+
+    background: var(--grey);
+
+    font-size: 16px;
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-rows: 1fr;
+    grid-template-areas: " . city num1 num2";
+    gap: 15px;
+}
+
+.city {
+    display: flex;
+    justify-content: flex-end;
+
+    margin: 0;
+    padding: 15px;
+
+    font-weight: 500;
+    grid-area: city;
+}
+
+.city select {
+    border: none;
+    background-color: var(--grey);
+
+    font-family: var(--font-family);
+}
+
+.num1 {
+    grid-area: num1;
+
+    font-weight: 600;
+}
+
+.num2 {
+    grid-area: num2;
+
+    font-weight: 600;
+}
+
+.headerMenu {
+    grid-template-rows: 1fr;
+    grid-template-areas: ". menu . .";
+
+    margin: 0;
+}
+
+.headerMenuContent {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr;
+    grid-template-areas: " menu . ";
+
+    /* margin: 0; */
+}
+
+.headerMenu ul {
+    display: flex;
+
+    list-style-type: none;
+    grid-area: menu;
+    justify-self: flex-start;
+}
+
+.headerMenu ul li {
+    margin-right: 63px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.hoverLink {
+    position: relative;
+    cursor: pointer;
+}
+
+.submenu {
+    display: none;
+}
+
+.arrow {
+    padding-left: 10px;
+}
+
+.submenu.active {
+    position: absolute;
+    z-index: 1000;
+    top: 20px;
+
+    display: grid;
+
+    width: 1401px;
+    height: 436px;
+    padding: 40px;
+
+    background: #FFF;
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.06);
+    grid-template-columns: 400px auto;
+}
+
+.tablinks {
+    margin: 0;
+    padding: 0 0 35px 0;
+}
+
+.tablinks a {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+}
+
+.tablinks a:hover, .tabContent a:hover, .headerMenuContent a:hover{
+    color: var(--primary);
+}
+
+.tab {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tabContent {
+    padding-left: 35px;
+    overflow-y: auto;
+}
+
+.tabContentItem {
+    padding-bottom: 30px;
+
+    line-height: 145%;
+}
+
+.burger {
+    grid-area: burger;
+    justify-self: flex-end;
+}
+
+@media (max-width: 1200px) {
+    .headerMenu ul {
+        justify-self: normal;
+        justify-content: space-between;
+    }
+
+    .headerMenu ul li {
+        margin-right: 0;
+    }
+
+    .submenu {
+        grid-template-columns: 1fr 1fr;
+        max-width: 90vw;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .learn , .call {
+        display: none;
+    }
+
+    .headerMainContent {
+        grid-template-areas: "logo search burger";
+        grid-template-columns: 130px 1fr 50px;
+        grid-template-rows: 80px;
+    }
+
+    .logo {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .headerMainContent {
+        grid-template-columns: 1fr auto 50px;
+        grid-template-rows: 60px;
+        column-gap: 0;
+    }
+    .logo {
+        max-width: 90px;
+    }
+
+    .headerLocationContent {
+        font-size: 14px;
+        grid-template-columns:  1fr;
+        grid-template-rows: 40px 30px;
+        grid-template-areas:
+                "city city city"
+                ". num1 num2";
+        row-gap: 0;
+        column-gap: 10px;
+    }
+
+    .search {
+        margin-right: 10px;
+        max-width: 28px;
+    }
+
+}
+

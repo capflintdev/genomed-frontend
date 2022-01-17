@@ -1,0 +1,17 @@
+.tag {
+	color: var(--blue);
+	border: 1px solid var(--blue);
+	margin-bottom: 15px;
+}
+
+.content {
+	flex-direction: column;
+}
+
+.moreBtn {
+	text-align: left;
+}
+
+@media (max-width: 768px) {
+
+}

@@ -1,2 +1,0 @@
-# genomed
-New Genomed Website

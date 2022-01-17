@@ -1,0 +1,84 @@
+.tabsTitleWrap {
+	display: flex;
+	justify-content: space-between;
+
+	margin-bottom: 20px;
+
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.tabTitle {
+	cursor: pointer;
+
+	color: #000;
+
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 23px;
+}
+
+.tabTitleActive {
+	padding-bottom: 16px;
+
+	color: var(--primary);
+	border-bottom: 1px solid var(--primary);
+}
+
+.tabContent {
+	font-size: 18px;
+	line-height: 140%;
+}
+
+@media (max-width: 1430px) {
+	.tabsTitleWrap {
+		flex-direction: column;
+		flex-wrap: wrap;
+		border-bottom: none;
+	}
+	.tabTitleActive, .tabTitle {
+		padding: 10px 0;
+	}
+	.tabTitle {
+		margin-bottom: 10px;
+	}
+}
+
+@media (max-width: 1430px) {
+	.tabsTitleWrap {
+		height: 350px;
+	}
+	.tabTitleActive {
+		border: none;
+	}
+	.tabContent {
+		background: #F7F9FB;
+		border-radius: 30px;
+		padding: 30px;
+	}
+}
+
+@media (max-width: 992px) {
+	.tabsTitleWrap {
+		height: auto;
+	}
+	.tabTitle {
+		margin-bottom: 0;
+	}
+	.tabContent {
+		background: none;
+		border-radius: 0;
+		padding: 0;
+	}
+}
+
+@media (max-width: 576px) {
+	.tabContent {
+		font-size: 16px;
+	}
+	.tabTitle {
+		font-size: 18px;
+		background: none;
+		padding: 10px 0;
+	}
+}
+

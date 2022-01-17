@@ -1,0 +1,94 @@
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .4);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: visibility 0.3s;
+}
+
+.popup {
+    width: 400px;
+    height: auto;
+    background: #fff;
+    position: fixed;
+    border-radius: 5px;
+    padding: 40px 40px 30px;
+}
+
+.close {
+    text-align: right;
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+}
+
+.close:hover {
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+.formTitle {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 25px;
+    line-height: 28px;
+}
+
+.linkItemWrap {
+    background: var(--primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: 0 auto 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.linkItemWrap:hover {
+    background: var(--blue);
+    transition: all 0.3s;
+}
+
+.linkItem:first-child {
+    margin-right: 30px;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.linkItem {
+    text-align: center;
+}
+
+.linkItem a{
+    text-align: center;
+    font-size: 14px;
+}
+
+
+@media (max-width: 576px) {
+    .popup {
+        max-width: 90vw;
+        padding: 30px 20px;
+    }
+    .formTitle {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+}
+

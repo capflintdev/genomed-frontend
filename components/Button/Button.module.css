@@ -1,0 +1,62 @@
+.button {
+	display: inline-block;
+
+	box-sizing: border-box;
+	width: 100%;
+
+	padding: 15px 0;
+
+	cursor: pointer;
+	transition: all 0.3s;
+	text-align: center;
+
+	border: 1px solid transparent;
+
+	border-radius: 5px;
+
+	font-family: Raleway, sans-serif;
+	font-size: 16px;
+
+	font-weight: 600;
+	line-height: 18px;
+}
+
+.primary {
+	color: var(--white);
+	background: linear-gradient(92.79deg, #289BE1 24%, #0C7BBE 89.13%);
+}
+
+.button.link {
+	padding: 0;
+}
+
+.link a {
+	display: block;
+	width: 100%;
+	padding: 15px 0;
+}
+
+.primary:hover {
+	color: var(--primary);
+	border: 1px solid var(--primary);
+	background: var(--white);
+}
+
+.white {
+	color: var(--blue);
+	border: 1px solid var(--blue);
+	background: none;
+}
+
+.white:hover {
+	color: var(--white);
+	background: var(--blue);
+}
+
+.mobileBtnResult {
+	margin-top: 30px;
+}
+
+.mobileBtnCall {
+	margin-top: 15px;
+}
