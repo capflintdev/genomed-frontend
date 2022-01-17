@@ -49,7 +49,7 @@ export const Header = (): JSX.Element => {
                         items.push(
                             {
                                 'title':
-                                    <Link key={index} href={`/categories/${menu.category_path}`}>
+                                    <Link key={index} href={`/${menu.category_path}`}>
                                         <a>{menu.category}
                                         </a>
                                     </Link>
@@ -59,7 +59,7 @@ export const Header = (): JSX.Element => {
                                         return <div key={index} className={styles.tabContentItem}
                                                     onClick={() => showSubmenu(false)}>
                                             <Link
-                                                href={`/categories/${menu.category_path}/${translit(item.name)}&article=${item.article}`}>
+                                                href={`/${menu.category_path}/${translit(item.name)}&article=${item.article}`}>
                                                 <a>{item.name}</a>
                                             </Link>
                                         </div>;
@@ -133,7 +133,7 @@ export const Header = (): JSX.Element => {
                                 width && width > 992 ?
                                     null
                                     : <div className={styles.burger}>
-                                        <MobileMenu data={data.data}/>
+                                        <MobileMenu data={data.data} showPopupCall={showPopupCall}/>
                                     </div>
                             }
                         </div>

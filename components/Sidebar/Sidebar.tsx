@@ -14,9 +14,9 @@ const Sidebar = ({data, setOpen}: sidebarProps) => {
             <ul className={styles.navItems}>
                 { data.map((item:oneCategory, index:number) => (
                     <li key={index} className={cn(styles.item, {
-                        [styles.active] : router.asPath.split('/')[2] === item['category_path']
+                        [styles.active] : router.asPath.split('/')[1] === item['category_path']
                     })}>
-                        <Link href={`/categories/${item['category_path']}`} >
+                        <Link href={`/${item['category_path']}`} >
                             <a onClick={()=> setOpen(false)}>{item['category']}</a>
                         </Link>
                     </li>

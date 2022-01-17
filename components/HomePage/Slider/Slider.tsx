@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import CardProduct from "../../Card/CardProduct/CardProduct";
 import {oneCategory, test} from "../../../interfaces/page.interface";
 import cn from 'classnames';
@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from "./Slider.module.css";
-import Container from "../../Container/Container";
 import useWindowDimensions from "../../../helpers/useWindowDimensions";
 import SwiperCore, {
     Navigation, Pagination
@@ -66,7 +65,7 @@ const Slider = ({data}: sliderProps) => {
                             loop={true}
 
                         >
-                            <div ref={(node) => setPrevEl(node)} className={styles.arrowPrev}></div>
+                            <div ref={(node) => setPrevEl(node)} className={styles.arrowPrev}/>
                             {
                                 slides.map((item, index) => {
                                     return (
@@ -84,7 +83,7 @@ const Slider = ({data}: sliderProps) => {
                                 })
                             }
 
-                            <div ref={(node) => setNextEl(node)} className={styles.arrowNext}></div>
+                            <div ref={(node) => setNextEl(node)} className={styles.arrowNext}/>
                         </Swiper>
                     </div>
 

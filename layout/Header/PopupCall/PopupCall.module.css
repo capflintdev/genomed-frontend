@@ -80,3 +80,15 @@
     font-size: 14px;
 }
 
+
+@media (max-width: 576px) {
+    .popup {
+        max-width: 90vw;
+        padding: 30px 20px;
+    }
+    .formTitle {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+}
+

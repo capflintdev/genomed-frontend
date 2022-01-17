@@ -56,7 +56,7 @@
 }
 
 @media (max-width: 768px) {
-	.cardLarge .content {
+	.cardLarge .content, .relatedTest .content {
 		grid-template-columns: 1fr;
 	}
 }

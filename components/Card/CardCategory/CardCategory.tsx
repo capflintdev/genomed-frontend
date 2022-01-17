@@ -16,7 +16,7 @@ const CardCategory = ({title, link, description}: cardCategoryProps) => {
                     </div>
                 </div>
                 <div className={cn(styles.moreBtn,stylesCategory.moreBtn )}>
-                    <Link href={`/categories/${link}`}>
+                    <Link href={`/${link}`}>
                         <a>Подробнее</a>
                     </Link>
                 </div>
