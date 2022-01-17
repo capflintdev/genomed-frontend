@@ -121,7 +121,10 @@ export const Header = (): JSX.Element => {
                                 }
                             </div>
                             <div className={styles.learn}>
-                                <Button appearance={'white'} href={"https://genomed.ru/laboratoriya/status-testa"}>
+                                <Button appearance={'white'}
+                                        href={"https://genomed.ru/laboratoriya/status-testa"}
+                                        rel={"noreferrer"}
+                                >
                                     Узнать результаты
                                 </Button>
                             </div>
@@ -175,11 +178,11 @@ export const Header = (): JSX.Element => {
                                                     {itemsMenu[active] && <TabContent {...itemsMenu[active]} />}
                                                 </div>
                                             </li>
-                                            <li><a href={"https://genomed.ru/contacts"}>Медицинские офисы</a></li>
-                                            <li><a href={"https://genomed.ru/laboratoriya"}>Лаборатория</a></li>
-                                            <li><a href={"https://genomed.ru/vyiezd-na-dom"}>Выезд на дом</a></li>
-                                            <li><a href={"https://genomed.ru/journal"}>Журнал</a></li>
-                                            <li><a href={"https://genomed.ru/about"}>О компании</a></li>
+                                            <li><a href={"https://genomed.ru/contacts"} rel={"noreferrer"}>Медицинские офисы</a></li>
+                                            <li><a href={"https://genomed.ru/laboratoriya"} rel={"noreferrer"}>Лаборатория</a></li>
+                                            <li><a href={"https://genomed.ru/vyiezd-na-dom"} rel={"noreferrer"}>Выезд на дом</a></li>
+                                            <li><a href={"https://genomed.ru/journal"} rel={"noreferrer"}>Журнал</a></li>
+                                            <li><a href={"https://genomed.ru/about"} rel={"noreferrer"}>О компании</a></li>
                                         </ul>
                                     </div>
                                 </div>

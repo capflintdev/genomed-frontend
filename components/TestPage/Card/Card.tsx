@@ -13,7 +13,7 @@ const Card = ({...test}) => {
             <div className={styles.price}>{priceRu(test.price)}</div>
             <div className={styles.button}>
                 <Link href={`http://price.genomed.ru/?order_tests=${test.price_id}`}>
-                    <a target="_blank">
+                    <a target="_blank" rel={"noreferrer"}>
                         <Button appearance={'primary'}>Купить</Button>
                     </a>
                 </Link>

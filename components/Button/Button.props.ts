@@ -5,4 +5,5 @@ export interface ButtonProps  {
     appearance: 'primary' | 'white';
     className?: string;
     href?: string;
+    rel?: string;
 }

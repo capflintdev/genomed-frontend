@@ -15,7 +15,7 @@ const Advantages = ({...advantages}: block2[]) => {
         <section className={styles.advantages}>
             <Container>
                 <h2>
-                    Геномед - лаборатория персонализированной медицины
+                    «Геномед» - лаборатория персонализированной медицины
                 </h2>
                 <div className={styles.advantagesWrap}>
                     {
