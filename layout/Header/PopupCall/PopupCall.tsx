@@ -7,6 +7,7 @@ import CallBackForm from "./CallBackForm/CallBackForm";
 import whatsapp from "./whatsapp.png";
 import Link from "next/link";
 import telegram from "./telegram.png";
+import {Button} from "../../../components/Button/Button";
 
 const PopupCall = ({popupCall, showPopupCall}: popupCallProps) => {
 
@@ -27,7 +28,7 @@ const PopupCall = ({popupCall, showPopupCall}: popupCallProps) => {
                                 <Image src={whatsapp} width={25} height={25}/>
                             </div>
                             <Link href={'https://wa.me/74956608377'}>
-                                <a target={'_blank'}>WhatsApp</a>
+                                <a target={'_blank'} rel={"noreferrer"}>WhatsApp</a>
                             </Link>
                         </div>
                         <div className={styles.linkItem}>
@@ -35,7 +36,7 @@ const PopupCall = ({popupCall, showPopupCall}: popupCallProps) => {
                                 <Image src={telegram} width={25} height={25}/>
                             </div>
                             <Link href={'https://t.me/GenomedGenetics_bot'}>
-                                <a target={'_blank'}>Telegram</a>
+                                <a target={'_blank'} rel={"noreferrer"}>Telegram</a>
                             </Link>
                         </div>
                     </div>

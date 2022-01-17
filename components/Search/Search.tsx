@@ -86,7 +86,7 @@ const AutoComplete = ({data}: autoCompleteProps) => {
                     autoComplete="off"
                 />
                 <div className={styles.iconSearch}>
-                    <Image src={SearchIcon}/>
+                    <Image src={SearchIcon} alt={"иконка поиска"}/>
                 </div>
             </div>
             {suggestions.length > 0 && text && isComponentVisible && (
