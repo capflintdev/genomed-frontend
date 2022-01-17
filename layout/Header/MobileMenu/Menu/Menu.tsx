@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-const Menu = ({open, data, showPopupCall}: MenuProps) => {
+const Menu = ({open, data, showPopupCall, setOpen}: MenuProps) => {
 
 
     const [menuCategories, showMenuCategories] = useState(false);
@@ -54,8 +54,8 @@ const Menu = ({open, data, showPopupCall}: MenuProps) => {
                         data.map((menuItem: oneCategory, index: number) => {
                             return (
                                 <li key={index}>
-                                    <Link href={`/categories/${menuItem.category_path}`}>
-                                        <a>{menuItem.category}
+                                    <Link href={`/${menuItem.category_path}`}>
+                                        <a onClick={() => setOpen(false)}>{menuItem.category}
                                         </a>
                                     </Link>
                                 </li>
@@ -74,4 +74,5 @@ interface MenuProps {
     open: boolean,
     data: oneCategory[];
     showPopupCall: (popupCall: boolean) => void,
+    setOpen: (open: boolean) => void,
 }
