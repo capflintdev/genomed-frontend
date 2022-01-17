@@ -31,3 +31,13 @@
         padding-bottom: 50px;
     }
 }
+
+@media (max-width: 575px) {
+    .navItems li:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    .navItems li a {
+        font-size: 16px;
+        line-height: 130%;
+    }
+}

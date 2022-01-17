@@ -12,7 +12,7 @@ const MobileMenu = ({data, showPopupCall}: mobileMenuProps) => {
     return (
         <>
             <Burger open={open} setOpen={setOpen} zIndex={10}/>
-            <Menu open={open} data={data} showPopupCall={showPopupCall}/>
+            <Menu open={open} data={data} showPopupCall={showPopupCall} setOpen={setOpen}/>
         </>
     );
 };
