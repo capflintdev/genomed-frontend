@@ -30,14 +30,14 @@ const Menu = ({open, data, showPopupCall}: MenuProps) => {
                         <li onClick={() => showMenuCategories(true)}>
                             <span className={styles.arrow}>Анализы и цены</span>
                         </li>
-                        <li><a href={"https://genomed.ru/contacts"}>Медицинские офисы</a></li>
-                        <li><a href={"https://genomed.ru/laboratoriya"}>Лаборатория</a></li>
-                        <li><a href={"https://genomed.ru/vyiezd-na-dom"}>Выезд на дом</a></li>
-                        <li><a href={"https://genomed.ru/journal"}>Журнал</a></li>
-                        <li><a href={"https://genomed.ru/about"}>О компании</a></li>
+                        <li><a href={"https://genomed.ru/contacts"} rel={"noreferrer"}>Медицинские офисы</a></li>
+                        <li><a href={"https://genomed.ru/laboratoriya"} rel={"noreferrer"}>Лаборатория</a></li>
+                        <li><a href={"https://genomed.ru/vyiezd-na-dom"} rel={"noreferrer"}>Выезд на дом</a></li>
+                        <li><a href={"https://genomed.ru/journal"} rel={"noreferrer"}>Журнал</a></li>
+                        <li><a href={"https://genomed.ru/about"} rel={"noreferrer"}>О компании</a></li>
                     </ul>
                     <Button appearance={'white'} href={"https://genomed.ru/laboratoriya/status-testa"}
-                            className={'mobileBtnResult'}>
+                            className={'mobileBtnResult'} rel={"noreferrer"}>
                         Узнать результаты
                     </Button>
                     <div onClick={() => showPopupCall(true)}>

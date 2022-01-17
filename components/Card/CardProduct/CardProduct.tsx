@@ -27,8 +27,8 @@ const CardProduct = ({size, test, category, className} : CardProductProps) => {
                     <div className={stylesCard.price}>{priceRu(test.price)} </div>
                     <div className={stylesCard.buyBtn}>
                         <Link href={`http://price.genomed.ru/?order_tests=${test.price_id}`}>
-                            <a target="_blank">
-                                <Button appearance={'primary'}>Купить</Button>
+                            <a target="_blank" rel={"noreferrer"}>
+                                <Button appearance={'primary'} >Купить</Button>
                             </a>
                         </Link>
                     </div>
