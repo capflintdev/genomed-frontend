@@ -20,7 +20,7 @@ const CallBackForm = (): JSX.Element => {
         reset();
 
         try {
-            await fetch('/api/contact', {
+            await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/contact`, {
                 method: 'POST',
                 body: JSON.stringify(formData),
             });

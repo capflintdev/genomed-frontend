@@ -28,9 +28,6 @@ export const Footer = ({...props}: FooterProps): JSX.Element => {
                                     <a href="https://genomed.ru/grafik-priema-grazhdan/" target="_blank" rel="noreferrer">График приема граждан</a>
                                 </li>
                                 <li>
-                                    <a href="https://genomed.ru/news/" target="_blank" rel="noreferrer">Отзывы</a>
-                                </li>
-                                <li>
                                     <a href="https://genomed.ru/docs/postanovlenie-1006.pdf" target="_blank" rel="noreferrer">Правила предоставления<br/> медицинских
                                         услуг</a>
                                 </li>
@@ -38,9 +35,9 @@ export const Footer = ({...props}: FooterProps): JSX.Element => {
                         </div>
                         <div className={styles.footerColumn}>
                             <ul>
-                                <li>
+                                {/*<li>
                                     <a href="docs/kvitanciya-2016-iyul.docx" target="_blank" rel="noreferrer">Квитанция на оплату</a>
-                                </li>
+                                </li>*/}
                                 <li>
                                     <a href="https://genomed.ru/docs/vyshestoyashchie-organizacii-2.pdf" target="_blank" rel="noreferrer">Вышестоящие организации</a>
                                 </li>
@@ -61,8 +58,8 @@ export const Footer = ({...props}: FooterProps): JSX.Element => {
                         <div className={`${styles.footerColumn} ${styles.workTime}`}>
                             <p className={styles.whiteFont}> График работы</p>
                             <p>Пн.-Пт.: 8.00 – 19.00</p>
-                            <p>Сб.: 8.00 – 17.00</p>
-                            <p>Вс.: 8.00 – 15.00</p>
+                            <p>Сб.: 8.00 – 19.00</p>
+                            <p>Вс.: 8.00 – 17.00</p>
                         </div>
                         <div className={`${styles.footerColumn} ${styles.footerContacts}`}>
                             <p className={styles.footerPhone}>
