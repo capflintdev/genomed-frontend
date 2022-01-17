@@ -57,7 +57,7 @@ export const Footer = ({...props}: FooterProps): JSX.Element => {
                         </div>
                         <div className={`${styles.footerColumn} ${styles.workTime}`}>
                             <p className={styles.whiteFont}> График работы</p>
-                            <p>Пн.-Пт.: 8.00 – 19.00</p>
+                            <p>Пн.-пт.: 8.00 – 19.00</p>
                             <p>Сб.: 8.00 – 19.00</p>
                             <p>Вс.: 8.00 – 17.00</p>
                         </div>
@@ -68,12 +68,12 @@ export const Footer = ({...props}: FooterProps): JSX.Element => {
                                 </a>
                             </p>
                             <p className={styles.footerAddressTitle}>
-                                Центральный офис МГЦ “Геномед”:
+                                Центральный офис МГЦ «Геномед»:
                             </p>
                             <p>
                                 115093, г. Москва, Подольское шоссе, дом 8, корпус 5 (метро Тульская)
                             </p>
-                            <p>ООО "Геномед", ОГРН 1077763509977</p>
+                            <p>ООО «Геномед», ОГРН 1077763509977</p>
                             <div className={styles.iconSoc}>
                                 <a href="https://vk.com/club49260280" target="_blank" rel="noreferrer">
                                     <Image src={vkIcon}  quality={100} width={25} height={25} alt={'вконтакте'}/>
