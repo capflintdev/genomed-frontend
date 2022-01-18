@@ -142,7 +142,6 @@ export const Header = (): JSX.Element => {
                         </div>
                     </Container>
                 </div>
-
                 <Container>
                     {
                         width && width < 992 ?

@@ -13,9 +13,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   `;
 
     const data = {
-        to: 'karinpark@mail.ru',
-        from: 'antipina.ky@genomed.ru',
-        subject: `Форма "Позвоните мне" с хромолаба`,
+        to: ['cs@genomed.ru', 'xeniya.antipina@gmail.com', 'callcenter@genomed.ru'],
+        from: {
+            email: 'antipina.ky@genomed.ru',
+            name: 'Хромолаб'
+        },
+        subject: `"Позвоните мне!" Сайт Хромолаб, заказ`,
         text: message,
         html: message.replace(/\r\n/g, '<br />'),
     };
