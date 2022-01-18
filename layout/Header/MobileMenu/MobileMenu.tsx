@@ -6,7 +6,7 @@ import {oneCategory} from "../../../interfaces/page.interface";
 const MobileMenu = ({data, showPopupCall}: mobileMenuProps) => {
 
     const [open, setOpen] = useState<boolean>(false);
-    const menu = useRef<HTMLDivElement>(null);
+    //const menu = useRef<HTMLDivElement>(null);
     //useOnClickOutside(menu, () => setOpen(false));
 
     return (

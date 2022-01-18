@@ -10,12 +10,11 @@ import mainPageImage from "./category-photo.webp";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import CardProduct from "../../components/Card/CardProduct/CardProduct";
 import Container from "../../components/Container/Container";
-import Burger from "../../layout/Header/MobileMenu/Burger/Burger";
-import cn from 'classnames';
+
 
 function Category({ tests, category, category_path ,data }: pageProps): JSX.Element {
 
-    const [open, setOpen] = useState<boolean>(false);
+
 
     return (
             <div className={styles.categoryPage}>
@@ -46,19 +45,11 @@ function Category({ tests, category, category_path ,data }: pageProps): JSX.Elem
                     </Container>
                 </section>
                 <Container>
-                    <div className={styles.openSidebar}>
-                        <Burger open={open} setOpen={setOpen} zIndex={0}/>
-                        <span onClick={() => setOpen(!open)}>Все категории</span>
-                    </div>
                     <div className={styles.categoryWrap}>
-                        <div className={cn(styles.sidebar, {
-                            [styles.showMobileSidebar]: open,
-                        })}>
-                            <Sidebar data={data} setOpen={setOpen}/>
+                        <div className={styles.sidebar}>
+                            <Sidebar data={data} />
                         </div>
-                        <div className={cn(styles.tests, {
-                            [styles.testsHide]: open
-                        })}>
+                        <div className={styles.tests}>
                             {
                                 tests && tests.map(
                                     (test:test, index: number) =>

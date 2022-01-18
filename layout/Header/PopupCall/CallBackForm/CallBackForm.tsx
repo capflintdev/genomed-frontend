@@ -2,7 +2,7 @@ import styles from './CallBackForm.module.css';
 import {useState} from "react";
 import {useForm} from "react-hook-form";
 import {Input} from "./Input/Input";
-
+import cn from 'classnames';
 
 export interface ICallBackForm {
     name: string;
@@ -11,7 +11,7 @@ export interface ICallBackForm {
 
 const CallBackForm = (): JSX.Element => {
 
-    const { register, handleSubmit, formState: { errors }, reset, clearErrors } = useForm<ICallBackForm>();
+    const {register, handleSubmit, formState: {errors}, reset, clearErrors} = useForm<ICallBackForm>();
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
     const [error, setError] = useState<string>();
 
@@ -20,34 +20,34 @@ const CallBackForm = (): JSX.Element => {
         reset();
 
         try {
-            await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/contact`, {
+            await fetch(`/api/contact`, {
                 method: 'POST',
                 body: JSON.stringify(formData),
             });
-        }
-        catch(e) {
+        } catch (e) {
             if (e instanceof Error) {
                 setError(e.message);
             }
         }
+
     };
 
     return (
         <div className={styles.formWrap}>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
+                <div className={cn({
+                    [styles.hide] : isSuccess
+                })}>
                     <Input
-                        {...register('name', { required: { value: true, message: 'Заполните имя' } })}
+                        {...register('name', {required: {value: true, message: 'Заполните имя'}})}
                         error={errors.name}
                         type="text"
                         placeholder={'Имя'}
                         className={styles.input}
                     />
-                </div>
-                <div>
                     <Input
                         {...register('phone', {
-                            required: { value: true, message: 'Заполните телефон' },
+                            required: {value: true, message: 'Заполните телефон'},
                             pattern: {
                                 value: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
                                 message: 'Пожалуйста, введите корректный номер',
@@ -58,11 +58,11 @@ const CallBackForm = (): JSX.Element => {
                         placeholder={'Ваш телефон'}
                         className={styles.input}
                     />
+                    <button type="submit" className={styles.btnSubmit} onClick={() => clearErrors()}>Отправить</button>
                 </div>
-                <button type="submit" className={styles.btnSubmit} onClick={() => clearErrors()}>Отправить</button>
                 {isSuccess && <div className={styles.success} role="alert">
                     <span>
-                        Спасибо, наш специалист с вами свяжется!
+                        Заявка успешно отправлена.<br/> Мы позвоним вам в ближайшее время.
                     </span>
                 </div>}
                 {error && <div className={styles.error} role="alert">

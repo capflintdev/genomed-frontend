@@ -82,39 +82,9 @@
 	.firstScreen {
 		margin-bottom: 50px;
 	}
-
 	.sidebar {
 		display: none;
 	}
-	.showMobileSidebar.sidebar {
-		display: block;
-		width: 100%;
-	}
-
-	.testsHide {
-		display: none;
-	}
-
-	.tests {
-		flex: 1 1 100%;
-	}
-
-	.openSidebar {
-		display: flex;
-		align-items: center;
-		margin-bottom: 20px;
-	}
-	.openSidebar span{
-		font-weight: 500;
-		display: inline-block;
-		margin-left: 15px;
-		cursor: pointer;
-	}
-
-	.sidebar {
-		margin-right: 0;
-	}
-
 }
 
 @media (max-width: 576px) {

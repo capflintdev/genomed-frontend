@@ -26,6 +26,9 @@ const Menu = ({open, data, showPopupCall, setOpen}: MenuProps) => {
                     <Image src={ArrowPrev}/>
                 </div>
                 <div style={{display: menuCategories ? 'none' : 'block'}}>
+                    <p className={styles.city}>Ваш город: Москва </p>
+                    <a href="tel:88003334538" className={cn(styles.num, styles.num1)}> 8 800 333-45-38, </a>
+                    <a href="tel:84956608377" className={styles.num}> 8 495 660-83-77 </a>
                     <ul className={styles.menu}>
                         <li onClick={() => showMenuCategories(true)}>
                             <span className={styles.arrow}>Анализы и цены</span>

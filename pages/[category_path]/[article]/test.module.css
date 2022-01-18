@@ -67,12 +67,15 @@
 		grid-column-gap: 0;
 	}
 	.firstBlock {
-		margin-bottom: 50px;
+		margin-bottom: 0;
 	}
 }
 
 @media (max-width: 576px) {
 	.testPage {
-		padding-bottom: 0px;
+		padding-bottom: 0;
+	}
+	.tabs {
+		margin-bottom: 50px;
 	}
 }

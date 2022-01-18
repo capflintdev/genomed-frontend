@@ -25,6 +25,9 @@
 	.mainText {
 		margin-bottom: 40px;
 	}
+	.generalInfo {
+		order: 2;
+	}
 }
 
 @media (max-width: 576px) {
