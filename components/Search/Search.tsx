@@ -10,6 +10,7 @@ import useOnClickOutside from "../../helpers/onClickOutside";
 
 interface autoCompleteProps {
     data: oneCategory[];
+    showPopupSearch?: (open: boolean) => void;
 }
 
 interface testWithPath extends test{
@@ -21,7 +22,7 @@ interface ISuggestions {
     suggestions: testWithPath[]
 }
 
-const AutoComplete = ({data}: autoCompleteProps) => {
+const AutoComplete = ({data, showPopupSearch}: autoCompleteProps) => {
     const [search, setSearch] = useState<ISuggestions>({
         text: "",
         suggestions: []
@@ -29,7 +30,11 @@ const AutoComplete = ({data}: autoCompleteProps) => {
 
     const [isComponentVisible, setIsComponentVisible] = useState(false);
     const root = useRef<HTMLDivElement>(null);
-    useOnClickOutside(root, () => setIsComponentVisible(false));
+
+    useOnClickOutside(root, () => {
+        setIsComponentVisible(false);
+        showPopupSearch && setIsComponentVisible(false);
+    });
 
     const onTextChanged = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -62,6 +67,7 @@ const AutoComplete = ({data}: autoCompleteProps) => {
 
     const suggestionSelected = () => {
         setIsComponentVisible(false);
+        showPopupSearch && showPopupSearch(false);
 
         setSearch({
             text: "",

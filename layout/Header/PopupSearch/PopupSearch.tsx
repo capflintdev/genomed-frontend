@@ -16,7 +16,7 @@ const PopupSearch = ({data, open, showPopupSearch}: popupSearchProps) => {
                 <div className={styles.closeLine}/>
                 <div className={styles.closeLine}/>
             </div>
-            <AutoComplete data={data}/>
+            <AutoComplete data={data} showPopupSearch={showPopupSearch}/>
         </div>
     );
 };

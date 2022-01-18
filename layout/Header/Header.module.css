@@ -229,7 +229,7 @@
 }
 
 @media (max-width: 992px) {
-    .learn , .call {
+    .learn , .call , .headerLocation {
         display: none;
     }
 

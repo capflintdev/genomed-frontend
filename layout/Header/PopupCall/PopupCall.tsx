@@ -7,7 +7,6 @@ import CallBackForm from "./CallBackForm/CallBackForm";
 import whatsapp from "./whatsapp.png";
 import Link from "next/link";
 import telegram from "./telegram.png";
-import {Button} from "../../../components/Button/Button";
 
 const PopupCall = ({popupCall, showPopupCall}: popupCallProps) => {
 
