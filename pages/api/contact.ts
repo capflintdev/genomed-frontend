@@ -13,7 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   `;
 
     const data = {
-        to: ['cs@genomed.ru', 'xeniya.antipina@gmail.com', 'callcenter@genomed.ru'],
+        to: ['xeniya.antipina@gmail.com', 'callcenter@genomed.ru'],
         from: {
             email: 'antipina.ky@genomed.ru',
             name: 'Хромолаб'
