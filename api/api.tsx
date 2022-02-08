@@ -5,7 +5,7 @@ import {test} from "../interfaces/page.interface";
 
 
 const instanceWP = axios.create({
-    baseURL: 'http://testchebur.temp.swtest.ru/',
+    baseURL: 'https://test-shkola-genetiki.genomed.ru/',
 });
 
 const instance = axios.create({
