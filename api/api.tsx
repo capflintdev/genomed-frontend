@@ -9,7 +9,7 @@ const instanceWP = axios.create({
 });
 
 const instance = axios.create({
-    baseURL: 'http://testcheb.tech/',
+    baseURL: 'https://genomed-frontend-test-ukoix.ondigitalocean.app/genomed-backend/',
 });
 
 /*api для тестов и категорий*/
